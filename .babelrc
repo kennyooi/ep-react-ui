@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", { "targets": { "uglify": false } }],
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
+}

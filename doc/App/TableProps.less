@@ -1,0 +1,47 @@
+@import '../../src/less/variables';
+
+.TableProps{
+	background-color: #fff;
+	border-radius: 3px;
+	overflow-y: hidden;
+	overflow-x: auto;
+	box-shadow: @shadow100;
+
+	&-header{
+		padding: 24px;
+		margin: 0;
+		font-size: 24px;
+	}
+	&-val-type{
+		color: @orange500;
+	}
+	&-val-default{
+		color: @grey500;
+	}
+}
+
+.table{
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	text-align: left;
+	background-color: #fff;
+
+	th, td{
+		padding: 12px 24px;
+		vertical-align: top;
+		border-top: 1px solid @grey100;
+		background-color: #fff;
+		transition: background .3s;
+	}
+	th{
+		font-size: .75em;
+		color: @grey500;
+	}
+	tr:hover,
+	tr.active{
+		td{
+			background-color: @grey100;
+		}
+	}
+}

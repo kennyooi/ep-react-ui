@@ -1,0 +1,102 @@
+@import "../../less/variables";
+
+.input-toggle{
+	.input-label{
+		padding-left: 0;
+		padding-right: 45px;
+		float: left;
+	}
+	.input-toggle-lever{
+		position: relative;
+		display: inline-block;
+		float: left;
+		margin: 5px 15px;
+		height: 14px;
+		width: 36px;
+		border-radius: 15px;
+		background-color: @grey500;
+		cursor: pointer;
+		transition: background .3s;
+		&-btn{
+			position: absolute;
+			top: -3.5px;
+			left: -3.5px;
+			display: inline-block;
+			width: 21px;
+			height: 21px;
+			border-radius: 50%;
+			background-color: @grey100;
+			box-shadow: @shadow100;
+			transition: left .3s, background .3s;
+		}
+	}
+
+
+	// states
+	&.input__checked{
+		.input-toggle-lever-btn{
+			left: 19.5px;
+		}
+
+		// styles
+		&.theme-default{
+			.input-toggle-lever{
+				background-color: @grey500;
+				&-btn{
+					background-color: @grey700;
+				}
+			}
+		}
+		&.theme-orange{
+			.input-toggle-lever{
+				background-color: @orange300;
+				&-btn{
+					background-color: @orange700;
+				}
+			}
+		}
+		&.theme-red{
+			.input-toggle-lever{
+				background-color: @red300;
+				&-btn{
+					background-color: @red700;
+				}
+			}
+		}
+		&.theme-blue{
+			.input-toggle-lever{
+				background-color: @blue300;
+				&-btn{
+					background-color: @blue700;
+				}
+			}
+		}
+		&.theme-green{
+			.input-toggle-lever{
+				background-color: @green300;
+				&-btn{
+					background-color: @green700;
+				}
+			}
+		}
+		&.theme-ember{
+			.input-toggle-lever{
+				background-color: @ember300;
+				&-btn{
+					background-color: @ember700;
+				}
+			}
+		}
+	}
+
+	&.input__disabled,
+	&.input__disabled.input__checked{
+		.input-toggle-lever{
+			cursor: initial;
+			background-color: @grey100;
+			&-btn{
+				background-color: @grey300;
+			}
+		}
+	}
+}

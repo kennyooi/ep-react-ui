@@ -1,0 +1,112 @@
+// button-core
+.btn,
+.btn-ghost,
+.btn-icon,
+.btn-flat,
+.btn-float{
+	position: relative;
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: inherit;
+	font-family: inherit;
+	border: none;
+	text-align: center;
+	outline: none;
+	padding: 0;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+
+	// states
+	&:disabled,
+	&.disabled{
+		cursor: default;
+		.ripple{
+			display: none;
+		}
+	}
+}
+
+.btn,
+.btn-flat,
+.btn-ghost{
+	// sizes
+	&.btn-sm{
+		font-size: 0.85rem;
+		line-height: 28px;
+	}
+	&.btn-lg{
+		font-size: 1.15rem;
+		line-height: 50px;
+		.btn-inner{
+			padding: 0 22px;
+		}
+	}
+
+	// width
+	&.btn-block{
+		display: block;
+		width: 100%;
+	}
+}
+
+.btn-icon,
+.btn-float{
+	@size: 48px;
+	border-radius: 50%;
+	line-height: @size;
+	width: @size;
+	height: @size;
+
+	.btn-inner{
+		border-radius: inherit;
+	}
+	.ripple{
+		border-radius: inherit;
+		overflow: hidden;
+	}
+
+	// sizes
+	&.btn-sm{
+		line-height: 32px;
+		width: 32px;
+		height: 32px;
+	}
+	&.btn-lg{
+		line-height: 56px;
+		width: 56px;
+		height: 56px;
+		font-size: 1.2rem;
+	}
+	&.btn-xlg{
+		line-height: 64px;
+		width: 64px;
+		height: 64px;
+		font-size: 1.4rem;
+	}
+
+}
+
+
+// temp
+.__react_component_tooltip{
+	line-height: 1;
+}
+
+
+// @hack
+.btn-icon{
+	.__react_component_tooltip{
+		display: none;
+		&.show{
+			display: inline-block;
+			opacity: .9;
+			animation: tooltipFade .5s;
+		}
+	}
+}
+
+@keyframes tooltipFade{
+	from { opacity: 0; }
+	to { opacity: .9; }
+}

@@ -1,0 +1,37 @@
+@import "../../less/variables";
+
+
+/**
+ * Extend input-field style
+ */
+.input-field-select{
+	.input{
+		height: 37px;
+		min-width: 200px;
+		appearance: none;
+	}
+	.input-label{
+		background-color: #fff;
+		width: ~"calc(100% - 24px)";
+		transition-property: color, transform, background;
+	}
+	.input-hint{
+		opacity: 1;
+	}
+	.input-icon-caret{
+		position: absolute;
+		top: 1.3em;
+		right: 0;
+		width: 1.5em;
+		font-size: .7em;
+		line-height: inherit;
+		text-align: center;
+	}
+
+	// sizes
+	&.input-sm{
+		.input{
+			height: 32px;
+		}
+	}
+}

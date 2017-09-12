@@ -1,0 +1,38 @@
+@import "../../less/variables";
+
+.btn-icon{
+	background-color: transparent;
+	color: #333;
+
+	// @fix for tooltip
+	.btn-inner{
+		> span{
+			display: inline-block;
+			line-height: 1;
+		}
+	}
+
+	
+	// styles
+	&.btn-white{
+		color: #fff;
+	}
+	&.btn-orange{
+		color: @orange500;
+	}
+	&.btn-blue{
+		color: @blue500;
+	}
+	&.btn-red{
+		color: @red500;
+	}
+	&.btn-green{
+		color: @green500;
+	}
+	&.btn-ember{
+		color: @ember500;
+	}
+	&.btn-grey{
+		color: @grey500;
+	}
+}

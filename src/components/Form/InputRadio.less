@@ -1,0 +1,78 @@
+@import "../../less/variables";
+
+.input-radio{
+	.input-box{
+		border-radius: 50%;
+		&-checked{
+			&:after{
+				content: '';
+				display: block;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				transform: scale(.65);
+			}
+		}
+	}
+
+	// styles
+	&.theme-default{
+		.input-box-checked{
+			border-color: @grey500;
+			&:after{
+				background-color: @grey500;
+			}
+		}
+	}
+	&.theme-orange{
+		.input-box-checked{
+			border-color: @orange500;
+			&:after{
+				background-color: @orange500;
+			}
+		}
+	}
+	&.theme-red{
+		.input-box-checked{
+			border-color: @red500;
+			&:after{
+				background-color: @red500;
+			}
+		}
+	}
+	&.theme-blue{
+		.input-box-checked{
+			border-color: @blue500;
+			&:after{
+				background-color: @blue500;
+			}
+		}
+	}
+	&.theme-green{
+		.input-box-checked{
+			border-color: @green500;
+			&:after{
+				background-color: @green500;
+			}
+		}
+	}
+	&.theme-ember{
+		.input-box-checked{
+			border-color: @ember500;
+			&:after{
+				background-color: @ember500;
+			}
+		}
+	}
+
+
+	// states
+	&.input__disabled{
+		.input-box-checked{
+			border-color: @grey300;
+			&:after{
+				background-color: @grey300;
+			}
+		}
+	}
+}

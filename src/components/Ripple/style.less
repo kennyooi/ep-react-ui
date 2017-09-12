@@ -1,0 +1,126 @@
+@dir    : "../../less";
+
+@import '@{dir}/variables';
+
+/**
+ * Ripple effect
+ */
+.ripple{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	// transform: translateZ(0);
+	// backface-visibility: hidden;
+	pointer-events: none;
+
+	.ripple-effect{
+		position: absolute;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		margin-left: -5px;
+		margin-top: -5px;
+		pointer-events: none;
+		transition-property: transform, opacity;
+		transition-timing-function: ease;
+		backface-visibility: hidden; 	// @fix - shaking effect
+		
+		// state
+		&__init{
+			opacity: 0;
+			transform: scale(0);
+		}
+
+		&__in{
+			opacity: 0.15;
+			transform: scale(10); // let frontend handle
+			transition-duration: .5s;
+		}
+
+		&__out{
+			opacity: 0;
+			transition-duration: .5s;
+		}
+	}
+
+
+	// speed
+	&.ripple-fast{
+		.ripple-effect{
+			&__in{
+				transition-duration: .25s;
+			}
+			&__out{
+				transition-duration: .25s;
+			}
+		}
+	}
+	&.ripple-slow{
+		.ripple-effect{
+			&__in{
+				transition-duration: 1s;
+			}
+			&__out{
+				transition-duration: .75s;
+			}
+		}
+	}
+
+
+
+	// styles
+	&.ripple-light{
+		.ripple-effect{
+			background-color: #fff;
+			&__in{
+				opacity: 0.3;
+			}
+			&__out{
+				opacity: 0;
+			}
+		}
+	}
+	&.ripple-default{
+		.ripple-effect{
+			background-color: @grey700;
+		}
+	}
+	&.ripple-orange{
+		.ripple-effect{
+			background-color: @orange700;
+		}
+	}
+	&.ripple-red{
+		.ripple-effect{
+			background-color: @red700;
+		}
+	}
+	&.ripple-blue{
+		.ripple-effect{
+			background-color: @blue700;
+		}
+	}
+	&.ripple-green{
+		.ripple-effect{
+			background-color: @green700;
+		}
+	}
+	&.ripple-ember{
+		.ripple-effect{
+			background-color: @ember700;
+		}
+	}
+
+}
+
+
+/**
+ * Ripple list item
+ */
+.ripple-list-item{
+	position: relative;
+	overflow: hidden;
+	transform: translate3d(0,0,0);
+}

@@ -1,0 +1,226 @@
+@import "../../less/variables";
+
+
+.input-field{
+	display: inline-block;
+	position: relative;
+	padding-top: 1rem;
+	line-height: 36px;
+	font-size: 1rem;
+
+	// components
+	.input{
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid @grey300;
+		border-radius: 0;
+		outline: none;
+		font-size: 1em;
+		font-family: @font1;
+		color: #333;
+		padding: 0;
+		line-height: inherit;
+		width: 100%;
+	}
+	textarea.input{
+		resize: none;
+		line-height: 1.6;
+		overflow: hidden;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		margin-bottom: -.75em; // fix layout
+	}
+
+	.input-label,
+	.input-placeholder{
+		position: absolute;
+		top: 1em;
+		left: 0;
+		color: @grey300;
+		font-size: 1em;
+		pointer-events: none;
+	}
+	.input-label{
+		cursor: text;
+		transform-origin: left top 0px;
+		transition: color .3s, transform .3s @easeout;
+	}
+	.input-placeholder{
+		opacity: 0;
+		transition: opacity .3s;
+		&.__is-visible{
+			opacity: 1;
+		}
+	}
+
+	.input-line{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		width: 100%;
+		transform: scaleX(0);
+		transform-origin: left bottom 0px;
+		transition: transform .3s @easeout;
+	}
+
+	.input-hint,
+	.input-count{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		font-size: .8em;
+		line-height: 1.2em;
+		color: @grey500;
+		opacity: 0;
+		transition: opacity .3s;
+	}
+	&.has-hint{
+		padding-bottom: 1.4em;
+		.input-line{
+			bottom: 1.4em;
+		}
+	}
+
+	.input-count{
+		left: auto;
+		right: 0;
+	}
+
+
+	// sizes
+	&.input-block{
+		display: block;
+	}
+	&.input-sm{
+		line-height: 32px;
+	}
+
+
+	//styles
+	&.theme-orange{
+		.input-line{
+			background-color: @orange500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @orange500;
+			}
+		}
+	}
+
+	&.theme-red{
+		.input-line{
+			background-color: @red500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @red500;
+			}
+		}
+	}
+
+	&.theme-blue{
+		.input-line{
+			background-color: @blue500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @blue500;
+			}
+		}
+	}
+
+	&.theme-green{
+		.input-line{
+			background-color: @green500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @green500;
+			}
+		}
+	}
+
+	&.theme-ember{
+		.input-line{
+			background-color: @ember500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @ember500;
+			}
+		}
+	}
+
+
+	// states
+	&.__is-active,
+	&.__is-focus{
+		.input-label{
+			color: @grey500;
+			background-color: transparent;
+			line-height: 1;
+			transform: perspective(1px) translateY(-0.75em) scale(0.75);
+		}
+	}
+
+	&.__is-focus{
+		.input-hint,
+		.input-count{
+			opacity: 1;
+		}
+		.input-line{
+			transform: scaleX(1);
+		}
+	}
+
+	&.__is-error{
+		.input-line{
+			transform: scaleX(1);
+			background-color: @red500;
+		}
+		.input-hint{
+			color: @red500;
+		}
+		.input-count{
+			opacity: 1;
+			color: @red500;
+		}
+
+		&.__is-focus{
+			.input-label{
+				color: @red500;
+			}
+		}
+	}
+
+	&.__is-readonly{
+		.input{
+			color: @grey700;
+			border-bottom-style: dashed;
+		}
+		.input-line{
+			display: none;
+		}
+	}
+
+	&.__is-disabled{
+		.input{
+			color: @grey500;
+			border-bottom-style: dotted;
+		}
+		.input-label{
+			color: @grey300;
+		}
+		.input-line{
+			display: none;
+		}
+	}
+
+}

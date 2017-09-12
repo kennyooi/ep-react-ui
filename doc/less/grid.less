@@ -1,0 +1,89 @@
+/**
+ * Grid layout  
+ */
+
+// width loop
+.grid-width(@size, @cols, @index: 1) when (@index < @cols) {
+	@name: ~"@{size}-@{index}";
+	> .c-@{name} {
+		width: ( percentage(@index / @cols) );
+	}
+
+	.grid-width(@size, @cols, @index + 1);
+}
+
+.grid-mixins(@cols) {
+	.grid-width('xs', @cols);
+
+	@media (min-width: @screen-sm) {
+		.grid-width('sm', @cols);
+	}
+
+	@media (min-width: @screen-md) {
+		.grid-width('md', @cols);
+	}
+
+	@media (min-width: @screen-lg) {
+		.grid-width('lg', @cols);
+	}
+}
+
+// Enable padding on grid layout
+.grid-padding-size(@size, @padding: 5) when (@padding <= 20) {
+	@name: ~"@{size}-@{padding}";
+	&.grid-p-@{name} {
+		margin-left: unit(-@padding, px);
+		margin-right: unit(-@padding, px);
+		> *{
+			padding-left: unit(@padding, px);
+			padding-right: unit(@padding, px);
+		}
+	}
+	// loop
+	.grid-padding-size(@size, @padding + 5);
+}
+
+.grid-padding-mixins() {
+	.grid-padding-size('xs');
+	
+	@media (min-width: @screen-sm) {
+		.grid-padding-size('sm');
+	}
+
+	@media (min-width: @screen-md) {
+		.grid-padding-size('md');
+	}
+
+	@media (min-width: @screen-lg) {
+		.grid-padding-size('lg');
+	}
+}
+
+.clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// 12 columns grids
+.grid-12{	
+	@cols : 12;
+	.clearfix();
+	> *{
+		display: block;
+		width: 100%;
+		float: left;
+	}
+
+	// enable padding
+	.grid-padding-mixins();
+
+	// enable grids
+	.grid-mixins(12);
+}

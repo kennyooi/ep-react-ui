@@ -1,0 +1,136 @@
+@import "../../less/variables";
+
+
+body{
+	&.modal__opened{
+		overflow-y: hidden;
+	}
+}
+
+.Modal{
+	position: fixed;
+	z-index: 105;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transition: opacity .2s;
+
+	&-overlay{
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(255,255,255,.75);
+	}
+
+	&-content{
+		position: fixed;
+		z-index: 106;
+		background-color: #fff;
+		width: @screen-md;
+		max-width: 90%;
+		max-height: 90%;
+		overflow-y: auto;
+		border-radius: 2px;
+		box-shadow: @shadow300;
+		transform: translateY(-100px);
+		transition: transform .35s @easeout, top .3s @easeout, left .3s @easeout;
+
+
+		// size
+		&.__sm{
+			width: @screen-sm;
+		}
+		&.__lg{
+			width: @screen-lg;
+		}
+
+		// state & styles
+		&.__is-scrollable{
+			.Modal-body{
+				max-height: 360px;
+				overflow-y: auto;
+			}
+			.Modal-footer{
+				border-top: 1px solid @grey300;
+			}
+		}
+	}
+
+
+	// Modal helpers
+	&-header{
+		padding: 24px;
+		border-bottom: 1px solid @grey300;
+		> *{
+			margin: 0;
+		}
+	}
+	&-body{
+		padding: 24px;
+		h2, h3, h4, h5, h6{
+			&:first-child{
+				margin-top: 0;
+			}
+		}
+	}
+	&-footer{
+		padding: 10px;
+		text-align: right;
+		.btn-flat{
+			min-width: 80px;
+		}
+	}
+	// &-closebtn{
+	// 	position: absolute;
+	// 	right: 5px;
+	// 	top: 5px;
+	// }
+	// &-cover{
+	// 	position: relative;
+	// 	background-color: @grey300;
+	// 	color: #fff;
+	// 	text-align: center;
+	// 	padding: 24px;
+	// 	border-radius: 2px 2px 0 0;
+	// 	> .fa{
+	// 		width: 100px;
+	// 		height: 100px;
+	// 		text-align: center;
+	// 		line-height: 80px;
+	// 		font-size: 50px;
+	// 		border: 10px solid #fff;
+	// 		border-radius: 50%;
+	// 		opacity: .8;
+	// 	}
+	// 	.btn-icon{
+	// 		position: absolute;
+	// 		top: 0;
+	// 		right: 0;
+	// 		z-index: 1;
+	// 	}
+
+	// 	// styles
+	// 	&__success{
+	// 		background-color: @green500;
+	// 	}
+	// 	&__error{
+	// 		background-color: @red500;
+	// 	}
+	// 	&__info{
+	// 		background-color: @blue500;
+	// 	}
+	// }
+
+
+	// states
+	&.is__open{
+		opacity: 1;
+		.Modal-content{
+			transform: translateY(0);
+		}
+	}
+}

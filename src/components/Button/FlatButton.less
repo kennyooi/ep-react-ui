@@ -1,0 +1,49 @@
+@import "../../less/variables";
+
+.btn-flat{
+	line-height: 36px;
+	background-color: transparent;
+	
+	.btn-inner{
+		padding: 0 16px;
+		background-color: rgba(0,0,0,0);
+		transition: background .3s;
+	}
+
+	// styles
+	&.btn-default{
+		color: #333;
+	}
+	&.btn-grey{
+		color: @grey500;
+	}
+	&.btn-orange{
+		color: @orange700;
+	}
+	&.btn-blue{
+		color: @blue700;
+	}
+	&.btn-red{
+		color: @red700;
+	}
+	&.btn-green{
+		color: @green700;
+	}
+	&.btn-ember{
+		color: @ember700;
+	}
+
+	// state
+	&:hover{
+		.btn-inner{
+			background-color: rgba(0,0,0,.08);
+		}
+	}
+	&:disabled,
+	&.disabled{
+		color: @grey300;
+		.btn-inner{
+			background-color: transparent;
+		}
+	}
+}

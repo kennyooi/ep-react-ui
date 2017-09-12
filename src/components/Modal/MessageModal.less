@@ -1,0 +1,33 @@
+@import "../../less/variables";
+
+
+.MessageModal{
+	.Modal-cover{
+		position: relative;
+		background-color: @grey300;
+		color: #fff;
+		text-align: center;
+		padding: 24px;
+		border-radius: 2px 2px 0 0;
+		&.__success{
+			background-color: @green500;
+		}
+		&.__error{
+			background-color: @red500;
+		}
+		&.__info{
+			background-color: @blue500;
+		}
+
+		&-icon{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 80px;
+			font-size: 50px;
+			border: 10px solid #fff;
+			border-radius: 50%;
+			opacity: .8;
+		}
+	}
+}

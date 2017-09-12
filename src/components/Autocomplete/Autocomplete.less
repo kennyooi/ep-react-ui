@@ -1,0 +1,59 @@
+@import "../../less/variables";
+
+.Autocomplete{
+	position: relative;
+	display: block;
+
+	&-input{
+		// @fix - has-hint popup
+		&.has-hint + .Autocomplete-list{
+			margin-top: -1.1em;
+		}
+	}
+
+	&-list{
+		position: absolute;
+		z-index: 99;
+		top: 100%;
+		left: 0;
+		right: 0;
+		display: block;
+		width: 100%;
+		color: #333;
+		background-color: #fff;
+		list-style: none;
+		padding-left: 0;
+		padding: 0;
+		margin: 5px 0 0;
+		border-radius: 2px;
+		box-shadow: @shadow300;
+	}
+	
+	&-item{
+		display: block;
+		padding: 14px 16px;
+		background-color: transparent;
+		transition: background .3s;
+		cursor: pointer;
+		&:first-child{
+			border-radius: 2px 2px 0 0;
+		}
+		&:last-child{
+			border-radius: 0 0 2px 2px;
+		}
+		
+		// states
+		&:hover, 
+		&.__is-active{
+			background-color: @grey100;
+		}
+
+		&.__is-loading{
+			color: @grey500;
+		}
+
+		&.__is-empty{
+
+		}
+	}
+}

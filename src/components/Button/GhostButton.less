@@ -1,0 +1,48 @@
+@import "../../less/variables";
+
+.btn-ghost{
+	border: 2px solid #fff;
+	background-color: transparent;
+	line-height: 32px;
+	.btn-inner{
+		padding: 0 16px;
+	}
+
+	// styles
+	&.btn-default,
+	&.btn-grey{
+		color: @grey500;
+		border-color: @grey500;
+	}
+	&.btn-white{
+		color: #fff;
+		border-color: #fff;
+	}
+	&.btn-orange{
+		color: @orange500;
+		border-color: @orange500;
+	}
+	&.btn-blue{
+		color: @blue500;
+		border-color: @blue500;
+	}
+	&.btn-red{
+		color: @red500;
+		border-color: @red500;
+	}
+	&.btn-green{
+		color: @green500;
+		border-color: @green500;
+	}
+	&.btn-ember{
+		color: @ember500;
+		border-color: @ember500;
+	}
+
+	// states
+	&:disabled,
+	&.disabled{
+		color: @grey300;
+		border-color: @grey300;
+	}
+}
