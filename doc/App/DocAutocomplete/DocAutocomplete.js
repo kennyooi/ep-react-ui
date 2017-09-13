@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import TableProps from '../TableProps';
-import { Autocomplete, SelectAutocomplete } from '../../../src/index';
+import { Autocomplete, SelectAutocomplete, GeoAutocomplete } from '../../../src/index';
 
 
 export default class DocAutocomplete extends Component {
@@ -85,6 +85,21 @@ export default class DocAutocomplete extends Component {
 										}, 500);
 									});
 								}}
+								onSelect={item => alert(item.id)}
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div className="group">
+					<div className="grid-12 grid-p-sm-15">
+						<div className="c-sm-6">
+							<GeoAutocomplete
+								className="input-block"
+								theme="orange"
+								label="GeoAutocomplete"
+								placeholder="Google Geo Autocomplete"
+								acOptions={{componentRestrictions: { country: 'my' }}}
 								onSelect={item => alert(item.id)}
 							/>
 						</div>

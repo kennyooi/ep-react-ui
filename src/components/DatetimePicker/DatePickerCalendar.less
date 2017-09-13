@@ -1,0 +1,135 @@
+@import '../../../../less/variables.less';
+
+.DatePickerCalendar{
+	@width: 290px;
+
+	text-align: center;
+	width: @width;
+	max-width: 100%;
+
+	// common
+	a{
+		text-decoration: none;
+		color: #333;
+	}
+	td, th{
+		width: 100% / 7;
+		border: none;
+		padding: 0;
+		text-align: center;
+		font-size: 12px;
+		> *{
+			display: block;
+			padding: 11px 8px;
+		}
+	}
+	tr{
+		td{
+			background-color: transparent;
+		}
+	}
+
+	// components
+	&-header{
+		.nav-prev,
+		.nav-next{
+			.btn-icon{
+				padding: 0;
+				color: @grey500;
+				display: inline-block;
+				&:hover{
+					color: #333;
+				}
+			}
+		}
+		.nav-title{
+			position: relative;
+			overflow: hidden;
+			> span{
+				padding: 7px;
+			}
+		}
+	}
+
+	&-body{
+		position: relative;
+		overflow: hidden;
+		display: block;
+		.DatePickerCalendar-days{
+			transition-delay: .04s;
+		}
+	}
+
+	// item
+	.week{
+		text-transform: uppercase;
+		font-size: 0.7em;
+		font-weight: 700;
+		color: @grey500;
+		padding: 8px;
+	}
+	.day{
+		position: relative;
+		transition: color .3s;
+		&:before{
+			content: '';
+			position: absolute;
+			// temp fix
+			left: 1px;
+			top: 0;
+			// width: 100%;
+			width: 39px;
+			height: 100%;
+			border-radius: 50%;
+			background-color: @orange300;
+			opacity: 0;
+			transform: scale(0);
+			transition: transform .25s, background .25s, opacity .25s;
+		}
+		span, a{
+			position: relative;
+			color: inherit;
+			transition: none;
+		}
+
+		// states
+		&.day__weekend{
+			color: @orange700;
+		}
+		&:hover{
+			color: #fff;
+			&:before{
+				background-color: @orange300;
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+		&.day__disabled{
+			color: @grey300;
+			&:before{
+				opacity: 0;
+				transform: scale(0);
+			}
+		}
+		&.day__today{
+			font-weight: 700;
+			&:before{
+				background-color: @grey100;
+				opacity: 1;
+				transform: scale(1);
+			}
+			&:hover:before{
+				background-color: @orange300;
+			}
+		}
+		&.day__selected{
+			color: #fff;
+			font-weight: 700;
+			&:before{
+				background-color: @orange500;
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+	}
+}

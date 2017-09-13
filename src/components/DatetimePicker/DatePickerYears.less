@@ -1,0 +1,27 @@
+@import '../../../../less/variables.less';
+
+.DatePickerYears{
+	position: relative;
+	height: 100%;
+	overflow: auto;
+	text-align: center;
+	margin-left: -10px;
+	margin-right: -10px;
+
+	&-item{
+		display: block;
+		padding: 8px;
+		text-decoration: none;
+		color: #333;
+		transition: color .3s;
+
+		&.is__disabled{
+			color: @grey300;
+		}
+		&.is__selected{
+			color: @orange500;
+			font-size: 26px;
+			font-weight: 700;
+		}
+	}
+}

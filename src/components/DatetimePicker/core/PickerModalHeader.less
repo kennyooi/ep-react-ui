@@ -1,0 +1,29 @@
+@import "../../../less/variables";
+
+.PickerModalHeader{
+	background-color: @orange500;
+	color: #fff;
+	padding: 20px;
+	
+	> div{
+		position: relative;
+		display: block;
+		font-weight: 700;
+		font-size: 1em;
+		line-height: 1.2;
+		height: 1.2em;
+		overflow: hidden;
+		cursor: pointer;
+		opacity: 0.7;
+		transition: opacity .3s;
+
+		// state
+		&.__is-active{
+			opacity: 1;
+		}
+		&.__is-large{
+			margin: 5px 0;
+			font-size: 2em;
+		}
+	}
+}

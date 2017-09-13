@@ -8,6 +8,7 @@ import DocButton from './App/DocButton/index';
 import DocModal from './App/DocModal/index';
 import DocForm from './App/DocForm/index';
 import DocAutocomplete from './App/DocAutocomplete/index';
+import DocDatetimePicker from './App/DocDatetimePicker/index';
 
 import style from './app.less';
 
@@ -37,6 +38,12 @@ const __ROUTES = [
 		name 	: 'Autocomplete',
 		component : DocAutocomplete,
 		route 	: '/autocomplete',
+	},
+	{
+		id 		: 'datetimepicker',
+		name 	: 'DatetimePicker',
+		component : DocDatetimePicker,
+		route 	: '/datetimepicker',
 	}
 ]
 

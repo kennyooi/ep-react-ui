@@ -54,6 +54,14 @@ export default class Autocomplete extends PureComponent {
         }
     }
 
+    componentWillUnmount() {
+        // kindly destroy all events
+        this.unbindKeyboardEvent();
+        
+        clearTimeout(this.__searchTimer);
+        clearTimeout(this.__onBlurTimer);
+    }
+
     render() {
         const { className, wrapperClassName, value, delay, loadItems, onRender, onSelect, debugMode, ...other } = this.props;
         const { input } = this.state;
@@ -124,13 +132,33 @@ export default class Autocomplete extends PureComponent {
         window.removeEventListener("keydown", this._onKeyboardPress);
     }
 
+    doSearch(val) {
+        const { loadItems, delay } = this.props;
+
+        // clear previous timer
+        clearTimeout(this.__searchTimer);
+
+        if (!loadItems || !val.length) {
+            return;
+        }
+
+        // trigger search (pause for 1s)
+        this.__searchTimer = setTimeout(() => {
+            // loadItems must return a promise
+            loadItems( val )
+                .then(results => this.setState({ isLoading: false, items: results || [] }))
+                .catch(err => {
+                    console.log(err);
+                    this.setState({ isLoading: false, items: [] })
+                })
+        }, delay)
+    }
+
 
     /**
      * EVENTS
      */
     _onChange(e) {
-        const { delay, loadItems } = this.props;
-
         const val = e.target.value;
 
         this.setState({
@@ -141,15 +169,7 @@ export default class Autocomplete extends PureComponent {
             selectedIndex: -1,
         });
 
-        // trigger search (pause for 1s)
-        clearTimeout(this.__callTimer);
-        if (loadItems && val.length) {
-            this.__callTimer = setTimeout(() => {
-                // loadItems must return a promise
-                loadItems( val )
-                    .then(results => this.setState({ isLoading: false, items: results || [] }));
-            }, delay);
-        }
+        this.doSearch( val );
 
         // trigger prop onChange
         if (this.props.onChange) {
