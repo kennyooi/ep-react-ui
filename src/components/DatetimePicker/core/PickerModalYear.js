@@ -10,8 +10,8 @@ export default class PickerModalYear extends Component {
 
 	static propTypes = {
 		momentValue : PropTypes.object, 	// current picker moment object
-		min 		: PropTypes.string, 	// min date value, moment default format
-		max 		: PropTypes.string, 	// max date value, moment default format
+		min 		: PropTypes.object, 	// min date value, moment default format
+		max 		: PropTypes.object, 	// max date value, moment default format
 		yearsGap 	: PropTypes.number, 	// years gap from this year 
 		onChange 	: PropTypes.func, 		// when calendar date changed
 	};

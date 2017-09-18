@@ -11,10 +11,11 @@ export default class PickerModalCalendar extends PureComponent {
 
 	static propTypes = {
 		momentValue : PropTypes.object, 	// current picker moment object
-		min 		: PropTypes.string, 	// min date value, moment object
-		max 		: PropTypes.string, 	// max date value, moment object
+		min 		: PropTypes.object, 	// min date value, moment object
+		max 		: PropTypes.object, 	// max date value, moment object
 		start_from 	: PropTypes.number, 	// calendar start from day 
 		onChange 	: PropTypes.func, 		// when calendar date changed
+		onRenderDay : PropTypes.func, 		// apply extra custom classNames to day
 	};
 
 	static defaultProps = {
@@ -33,10 +34,6 @@ export default class PickerModalCalendar extends PureComponent {
 			isPrevViewMonth : false,
 		};
 	}
-
-  	// componentWillUnmount() {
-  	// 	clearTimeout(this.timerTransition);
-  	// }
 
   	render() {
   		const { isPrevViewMonth } = this.state;
@@ -108,8 +105,6 @@ export default class PickerModalCalendar extends PureComponent {
 		const { start_from } = this.props;
 		const { viewMonth } = this.state;
 
-		console.log(viewMonth);
-
 		// counter
 		const dayCounter = moment(viewMonth); 	// clone viewMonth 
 		const weeksEl = [];
@@ -142,7 +137,7 @@ export default class PickerModalCalendar extends PureComponent {
 		if (dayCounter.month() === this.state.viewMonth.month() &&
 			dayCounter.day() === dayOfWeek) {
 			// generate className
-			const classNameArr = ['day'];
+			let classNameArr = ['day'];
 			// today
 			if (dayCounter.isSame(moment(), 'day')) {
 				classNameArr.push('__today');
@@ -163,6 +158,11 @@ export default class PickerModalCalendar extends PureComponent {
 				classNameArr.push('__disabled');
 			}
 
+			// apply filter to classNames
+			if (this.props.onRenderDay) {
+				classNameArr = this.props.onRenderDay(classNameArr, dayCounter) || [];
+			}
+
 			content = (
 				<td key={dayCounter.format('YYYY-MM-DD')}
 					className={classNames(classNameArr)}>
@@ -172,7 +172,7 @@ export default class PickerModalCalendar extends PureComponent {
 
 					{classNameArr.indexOf('__disabled') === -1 &&
 						<a href="#" 
-							data-day={dayCounter.format()} 	// clone moment counter
+							data-day={dayCounter.format('DD')} 	// clone moment counter
 							onClick={this._onSelectDay}>
 							{dayCounter.format('D')}
 						</a>
@@ -212,9 +212,11 @@ export default class PickerModalCalendar extends PureComponent {
 	_onSelectDay(e) {
 		e.preventDefault();
 
-		const selectedDate = (e.currentTarget.dataset || {}).day ? moment(e.currentTarget.dataset.day) : '';
-		if (this.props.onChange && selectedDate) {
-			this.props.onChange(selectedDate)
+		const selectedDay = (e.currentTarget.dataset || {}).day;
+
+		if (selectedDay && this.props.onChange) {
+			const newMoment = moment(this.props.momentValue).date(selectedDay);
+			this.props.onChange(newMoment)
 		}
 	}
 } 

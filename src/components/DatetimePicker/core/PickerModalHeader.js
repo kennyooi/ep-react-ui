@@ -1,6 +1,5 @@
 import { PureComponent } from 'react';
 import moment from 'moment';
-import { isEqual } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import style from './PickerModalHeader.less';
@@ -19,15 +18,18 @@ export default class PickerModalHeader extends PureComponent {
 	constructor(props) {
 		super(props);
 
+		// variables
+		this.__isPrev = false;
+
 		// actions
 		this._onChangeView = this._onChangeView.bind(this);
 	}
 
-  	// componentWillReceiveProps(nextProps, nextState) {
-  	// 	if (!isEqual(nextProps.value, this.props.value)) {
-  	// 		this.__isPrev = moment(nextProps.value, nextProps.format).isBefore(moment(this.props.value, this.props.format));
-  	// 	}
-  	// }
+  	componentWillReceiveProps(nextProps, nextState) {
+  		if (!nextProps.momentValue.isSame(this.props.momentValue)) {
+  			this.__prev = nextProps.momentValue.isBefore( this.props.momentValue );
+  		}
+  	}
 
 	render() {
 		return (
@@ -40,7 +42,7 @@ export default class PickerModalHeader extends PureComponent {
 	}
 
 	renderSectionDate() {
-		const { momentValue, type, view, isPrev } = this.props;
+		const { momentValue, type, view } = this.props;
 
 		// disable on time type
 		if (type === 'time') {
@@ -55,7 +57,7 @@ export default class PickerModalHeader extends PureComponent {
 				onClick={this._onChangeView}
 			>
 	        	<ReactCSSTransitionGroup 
-					transitionName={isPrev ? "slideUp" : "slideDown"}
+					transitionName={this.__isPrev ? "slideUp" : "slideDown"}
 					transitionEnterTimeout={350} 
 					transitionLeaveTimeout={350}
 				>
@@ -66,7 +68,7 @@ export default class PickerModalHeader extends PureComponent {
 	}
 
 	renderSectionYear() {
-		const { momentValue, type, view, disableYear, isPrev } = this.props;
+		const { momentValue, type, view, disableYear } = this.props;
 
 		// disable on time type
 		if (type === 'time') {
@@ -81,7 +83,7 @@ export default class PickerModalHeader extends PureComponent {
 				onClick={!disableYear ? this._onChangeView : null}
 			>
 				<ReactCSSTransitionGroup
-					transitionName={isPrev ? "slideUp" : "slideDown"} 
+					transitionName={this.__isPrev ? "slideUp" : "slideDown"} 
 					transitionEnterTimeout={350} 
 					transitionLeaveTimeout={350}
 				>
@@ -92,7 +94,7 @@ export default class PickerModalHeader extends PureComponent {
 	}
 
 	renderSectionTime() {
-		const { momentValue, type, view, disableTime, isPrev } = this.props;
+		const { momentValue, type, view, disableTime } = this.props;
 
 		// disable on date type
 		if (type === 'date') {

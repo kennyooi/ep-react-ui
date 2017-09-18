@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import { isEmpty } from 'lodash';
-
 import TableProps from '../TableProps';
 import { Button, ConfirmModal } from '../../../src/index';
 
@@ -94,6 +92,7 @@ export default class DocConfirmModal extends Component {
 						{
 							name 	: 'onConfirm',
 							type 	: 'func',
+							desc 	: '()',
 							desc 	: 'Trigger when confirm button clicked.',
 						},
 					]}

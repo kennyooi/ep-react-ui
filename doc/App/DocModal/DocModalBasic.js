@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import { isEmpty } from 'lodash';
-
 import TableProps from '../TableProps';
 import { Button, FlatButton, Modal } from '../../../src/index';
 
@@ -129,16 +127,19 @@ export default class DocModal extends Component {
 						{
 							name 	: 'onClose',
 							type 	: 'func',
+							default : '()',
 							desc 	: 'Trigger when modal is closed.',
 						},
 						{
 							name 	: 'onOpen',
 							type 	: 'func',
+							default : '()',
 							desc 	: 'Trigger when modal is opened.',
 						},
 						{
 							name 	: 'onRequestClose',
 							type 	: 'func',
+							default : '()',
 							desc 	: 'Trigger modal close.',
 						},
 					]}

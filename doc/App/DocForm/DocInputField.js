@@ -140,6 +140,11 @@ export default class DocInputField extends Component {
 				<TableProps 
 					dataset={[
 						{
+							name 	: 'All input event',
+							type 	: '...',
+							desc 	: 'All input event are supported.',
+						},
+						{
 							name 	: 'className',
 							type 	: 'string',
 							desc 	: 'Extra CSS classes for input container.',

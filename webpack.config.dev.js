@@ -8,9 +8,9 @@ module.exports = {
     context: path.resolve(__dirname, './doc/'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './dist/'),
-        publicPath: 'http://localhost:8000/dist/',
-        filename: '[name].js',
+        path: path.resolve(__dirname, './doc/'),
+        publicPath: 'http://localhost:8000/',
+        filename: 'bundle.js',
     },
     stats: {
         colors  : true,
@@ -73,14 +73,13 @@ module.exports = {
             __DEV__: JSON.stringify('true'),
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
             React: 'react',
             PropTypes: 'prop-types',
             classNames: 'classnames',
         })
     ],
     externals: {
-        "jquery": "jQuery"
+
     },
     devServer: {
         contentBase: path.join(__dirname, "doc"),

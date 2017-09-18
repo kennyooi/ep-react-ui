@@ -1,0 +1,66 @@
+@import "../../less/variables";
+
+
+.Notification{
+    position: fixed;
+    z-index: 100;
+    top: 20px;
+    right: 20px;
+
+    &-inner{
+        position: relative;
+    }
+
+    &-item{
+        background-color: #fff;
+        box-shadow: @shadow300;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 2px;
+        width: 310px;
+        font-size: 14px;
+        display: table;
+        > *{
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        // @fix
+        &:first-child{
+            left: auto;
+            right: 0;
+        }
+
+        // components
+        i{
+            width: 24px;
+            font-size: 24px;
+            text-align: center;
+        }
+        p{
+            margin-bottom: 0;
+            padding-left: 10px;
+            line-height: 1.5;
+        }
+
+        // styles
+        &.__error{
+            border-left: 4px solid @red500;
+            i{
+                color: @red500;
+            }
+        }
+        &.__success{
+            border-left: 4px solid @green500;
+            i{
+                color: @green500;
+            }
+        }
+        &.__info{
+            border-left: 4px solid @blue500;
+            i{
+                color: @blue500;
+            }
+        }
+    }
+}

@@ -10,33 +10,38 @@ import { InputField } from '../Form';
 import PickerModalHeader from './core/PickerModalHeader';
 import PickerModalCalendar from './core/PickerModalCalendar';
 import PickerModalYear from './core/PickerModalYear';
+import PickerModalTime from './core/PickerModalTime';
 
-import style from './DatePicker.less';
+import style from './DatetimePicker.less';
 
 
-export default class DatePicker extends PureComponent {
+export default class DatetimePicker extends PureComponent {
 
 	static propTypes = {
 		value 			: PropTypes.string, 	// input value, moment default format
 		type 			: PropTypes.string, 	// datePicker type, ['date', 'datetime', 'time']
-		min 			: PropTypes.string, 	// min date value, moment default format
-		max 			: PropTypes.string, 	// max date value, moment default format
+		min 			: PropTypes.object, 	// min date value, moment default format
+		max 			: PropTypes.object, 	// max date value, moment default format
 		format 			: PropTypes.string, 	// value format
 		timeInterval 	: PropTypes.number, 	// time interval between minutes
 		displayFormat 	: PropTypes.string, 	// display format
 		disableYear 	: PropTypes.bool, 		// disable year change
-		disableInput 	: PropTypes.bool, 		// disable input field, replace with button text
 		inputProps 		: PropTypes.object, 	// extra props for input
+		txtCancel 		: PropTypes.string, 	// cancel button text
+		txtConfirm 		: PropTypes.string, 	// confirm button text
 		onChange 		: PropTypes.func, 		// trigger when date changed
+		onRenderDay 	: PropTypes.func, 		// apply extra custom classNames to day
 	};
 
 	static defaultProps = {
-		type 			: 'date',
+		type 			: 'datetime',
 		value 			: '',
 		timeInterval 	: 15,
 		format 			: 'YYYY-MM-DD HH:mm',
 		displayFormat 	: 'ddd, MMM D YYYY, h:mm A',
 		inputProps 		: {},
+		txtCancel 		: 'Cancel',
+		txtConfirm 		: 'Select',
 	};
 
 	constructor(props) {
@@ -44,9 +49,8 @@ export default class DatePicker extends PureComponent {
 
 		this.state = {
 			isShowModal 	: false, 	// modal flag
-			currentView 	: 'date',	// calendar view
+			currentView 	: props.type == 'time' ? 'time' : 'date',	// calendar view
 			selectedDate 	: null,		// calendar date
-			isPrev 			: false, 	// flag for animation, whether new date is after / before 
 		};
 
 		// actions
@@ -85,8 +89,8 @@ export default class DatePicker extends PureComponent {
   	}
 
   	renderModalContent() {
-  		const { disableYear } = this.props;
-  		const { isShowModal, selectedDate, currentView, min, max, isPrev } = this.state;
+  		const { disableYear, min, max, type, timeInterval, onRenderDay, txtCancel, txtConfirm } = this.props;
+  		const { isShowModal, selectedDate, currentView } = this.state;
 
   		if (!isShowModal) {
   			return null;
@@ -96,10 +100,9 @@ export default class DatePicker extends PureComponent {
   			<div className="DatetimePickerModal-content">
 				<div className="DatetimePickerModal-header">
 					<PickerModalHeader
-						type='date'
+						type={type}
 						disableYear={disableYear}
 						view={currentView}
-						isPrev={isPrev}
 						momentValue={selectedDate}
 						onChange={this._onChangeView}
 					/>
@@ -111,6 +114,7 @@ export default class DatePicker extends PureComponent {
 							max={max}
 							momentValue={selectedDate}
 							onChange={this._onChangeDate}
+							onRenderDay={onRenderDay}
 						/>
 					}
 
@@ -122,101 +126,39 @@ export default class DatePicker extends PureComponent {
 							onChange={this._onChangeDate}
 						/>
 					}
+
+					{currentView === 'time' &&
+						<PickerModalTime
+							min={min}
+							max={max}
+							timeInterval={timeInterval}
+							momentValue={selectedDate}
+							onChange={this._onChangeDate}
+						/>
+					}
 				</div>
 				<div className="DatetimePickerModal-footer">
 					<FlatButton 
 						theme="default"
 						onClick={this._onCloseModal}
-					>
-						CANCEL
-					</FlatButton>
+					>{txtCancel}</FlatButton>
 					<FlatButton 
 						theme="orange"
 						onClick={this._onConfirm}
-					>
-						OK
-					</FlatButton>
+					>{txtConfirm}</FlatButton>
 				</div>
 			</div>
 		)
   	}
 
-	// renderModalContent2() {
-	// 	const { value, type, format, displayFormat, onChange, disableYear, min, max, timeInterval } = this.props;
-	// 	const { selectedDate, currentView, isShowModal } = this.state;
-
-	// 	if (!isShowModal) {
-	// 		return null;
-	// 	}
-
-	// 	return (
-	// 		<div className="DatePickerModal-content">
-	// 			<div className="DatePickerModal-header">
-	// 				<DatePickerHeader
-	// 					format={format}
-	// 					view={currentView}
-	// 					type={type}
-	// 					disableYear={disableYear}
-	// 					value={selectedDate}
-	// 					onChange={this._onChange.bind(this, 'currentView')}
-	// 				/>
-	// 			</div>
-	// 			<div className="DatePickerModal-body">
-	// 				{currentView === 'date' &&
-	// 					type !== 'time' &&
-	// 					<DatePickerCalendar
-	// 						min={min}
-	// 						max={max}
-	// 						format={format}
-	// 						value={selectedDate}
-	// 						onChange={this._onChange.bind(this, 'selectedDate')}
-	// 					/>
-	// 				}
-	// 				{currentView === 'year' &&
-	// 					type !== 'time' &&
-	// 					<DatePickerYears 
-	// 						min={min}
-	// 						max={max}
-	// 						format={format}
-	// 						value={selectedDate}
-	// 						onChange={this._onChange.bind(this, 'selectedDate')}
-	// 					/>
-	// 				}
-	// 				{currentView === 'time' &&
-	// 					type !== 'date' &&
-	// 					<DatePickerTime
-	// 						format={format}
-	// 						timeInterval={timeInterval}
-	// 						value={selectedDate}
-	// 						onChange={this._onChange.bind(this, 'selectedDate')}
-	// 					/>
-	// 				}
-	// 			</div>
-	// 			<div className="DatePickerModal-footer">
-	// 				<FlatButton 
-	// 					theme="default"
-	// 					onClick={this._onCloseModal}
-	// 				>
-	// 					CANCEL
-	// 				</FlatButton>
-	// 				<FlatButton 
-	// 					theme="orange"
-	// 					onClick={this._onConfirm}
-	// 				>
-	// 					OK
-	// 				</FlatButton>
-	// 			</div>
-	// 		</div>
-	// 	)
-	// }
-
 
 	// actions
 	_onOpenModal() {
-		const { value, format } = this.props;
+		const { type, value, format } = this.props;
 
 		this.setState({
 			isShowModal  : true,
+			currentView  : type == 'time' ? 'time' : 'date',
 			selectedDate : value ? moment(value, format) : moment(),
 		});
 	}
@@ -236,16 +178,16 @@ export default class DatePicker extends PureComponent {
 
 	_onChangeDate(momentObj) {
 		this.setState({
-			selectedDate : momentObj,
-			isPrev 		 : momentObj.isBefore(this.state.selectedDate),
+			selectedDate : momentObj
 		});
 	}
 
 	_onConfirm() {
+		const { format } = this.props;
 		const { selectedDate } = this.state;
 
 		if (this.props.onChange) {
-			this.props.onChange( selectedDate );
+			this.props.onChange( selectedDate.format(format) );
 		}
 
 		this._onCloseModal();

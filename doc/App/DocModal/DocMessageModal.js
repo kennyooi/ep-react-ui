@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import { isEmpty } from 'lodash';
-
 import TableProps from '../TableProps';
 import { Button, MessageModal } from '../../../src/index';
 

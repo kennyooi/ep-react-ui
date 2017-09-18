@@ -1,0 +1,104 @@
+@import "../../less/variables";
+
+
+.Loader{
+    // components
+    &-content{
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    &-text{
+        margin-top: 5px;
+        margin-bottom: 0;
+        color: @grey500;
+        font-size: 18px;
+    }
+
+    &-spinner{
+        @size: 14px;
+        position: relative;
+        display: inline-block;
+        width: @size * 4;
+        height: @size * 4;
+        -webkit-animation: loaderCircle 1.5s infinite linear;
+        animation: loaderCircle 1.5s infinite linear;
+
+        > *{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: @size;
+            height: @size;
+            margin-top: -(@size / 2);
+            margin-left: -(@size / 2);
+            &:before{
+                content: '';
+                display: block;
+                width: @size;
+                height: @size;
+                border-radius: 50%;
+                background-color: #ccc;
+                transform: translateY(-(@size * 1.5));
+                transition: transform .5s @easeout;
+            }
+
+            &:nth-child(1) {
+                &:before{
+                    background-color: @green500;
+                }
+            }
+            &:nth-child(2) {
+                transform: rotate(72deg);
+                &:before{
+                    background-color: @blue500;
+                }
+            }
+            &:nth-child(3) {
+                transform: rotate(144deg);
+                &:before{
+                    background-color: @orange500;
+                }
+            }
+            &:nth-child(4) {
+                transform: rotate(216deg);
+                &:before{
+                    background-color: @red500;
+                }
+            }
+            &:nth-child(5) {
+                transform: rotate(288deg);
+                &:before{
+                    background-color: @ember500;
+                }
+            }
+        }
+
+        &.__is-stop{
+            > *:before{
+                transform: translateY(0);
+            }
+        }
+    }
+
+
+    // styles
+    &.valign{
+        display: table;
+        height: 100vh;
+        width: 100%;
+        .loader-content{
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+}
+@keyframes loaderCircle {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+@-webkit-keyframes loaderCircle {
+    from { -webkit-transform: rotate(0); }
+    to { -webkit-transform: rotate(360deg); }
+}

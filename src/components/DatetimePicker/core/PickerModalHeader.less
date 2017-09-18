@@ -12,10 +12,18 @@
 		font-size: 1em;
 		line-height: 1.2;
 		height: 1.2em;
-		overflow: hidden;
 		cursor: pointer;
 		opacity: 0.7;
 		transition: opacity .3s;
+		> span{
+			display: block;		
+			height: 100%;
+			overflow: hidden;
+			small{
+				margin-left: .5em;
+				font-size: .7em;
+			}
+		}
 
 		// state
 		&.__is-active{

@@ -134,18 +134,19 @@ export default class DocAutocomplete extends Component {
 						{
 							name 	: 'loadItems',
 							type 	: 'func',
+							default : '()',
 							desc 	: (<div>Load datasource of Autocomplete. <br/>*This function must return a <code>Promise</code>. <br/>*Response must contains array of objects with props <code>id</code> & <code>name</code>.</div>),
 						},
 						{
 							name 	: 'onRender',
 							type 	: 'func',
-							default : 'item => item.name',
+							default : '(item) => item.name',
 							desc 	: 'Render method of Autocomplete item.',
 						},
 						{
 							name 	: 'onSelect',
 							type 	: 'func',
-							default : 'item => item',
+							default : '(item)',
 							desc 	: 'Triggered when item is selected.',
 						},
 						{

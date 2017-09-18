@@ -1,0 +1,19 @@
+.margin-loop(@size: 5) when (@size <= 30) {
+	.m-t-@{size} {
+		margin-top: unit(@size, px);
+	}
+	.m-l-@{size} {
+		margin-left: unit(@size, px);
+	}
+	.m-r-@{size} {
+		margin-right: unit(@size, px);
+	}
+	.m-b-@{size} {
+		margin-bottom: unit(@size, px);
+	}
+
+	// loop
+	.margin-loop(@size + 5);
+}
+
+.margin-loop();

@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { filter } from 'lodash';
 import { NavLink, Link } from 'react-router-dom';
+import { ListItem } from '../../src/index';
+
 
 // styles
 import styles from './Layout.less'; 
-
-import { ListItem } from '../../src/index';
 
 
 export default class Layout extends Component {
@@ -35,7 +36,7 @@ export default class Layout extends Component {
 					</div>
 
 					<ul className="main-nav-list list-unstyled">
-						{(routes || []).map((obj, index) =>
+						{(filter(routes, r => r.id !== 'landing')).map((obj, index) =>
 							<ListItem
 								key={index}
 								TagName="li"
