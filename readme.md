@@ -46,4 +46,4 @@ MIT
 [classnames]: <https://github.com/JedWatson/classnames>
 
 ### Changes
-Version 0.0     - First version.
+Version 0.1     - First version.

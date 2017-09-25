@@ -9,8 +9,14 @@
     "build-doc": "webpack --config ./webpack.config.doc.js -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository" : { 
+    "type": "git",   
+    "url": "https://github.com/kennyooi/ep-react-ui"
+  },
   "keywords": [
     "EP",
+    "React",
+    "components",
     "UI"
   ],
   "author": "Kenny",
