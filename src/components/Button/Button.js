@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import ButtonCore from './ButtonCore';
 
-import styleCore from './style.less';
-import style from './Button.less';
+import './style.less';
+import './Button.less';
 
 
 export default class Button extends Component {

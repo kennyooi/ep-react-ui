@@ -4,7 +4,7 @@
 import { PureComponent } from 'react';
 import { omitBy, isNull } from 'lodash';
 
-import style from './InputSelect.less';
+import './InputSelect.less';
 
 
 export default class InputSelect extends PureComponent {

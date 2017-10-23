@@ -4,7 +4,7 @@ import { isEmpty, times, uniqueId } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { IconButton } from '../../Button';
 
-import style from './PickerModalCalendar.less';
+import './PickerModalCalendar.less';
 
 
 export default class PickerModalCalendar extends PureComponent {

@@ -14,10 +14,6 @@ var _SelectAutocomplete = require('./SelectAutocomplete');
 
 var _SelectAutocomplete2 = _interopRequireDefault(_SelectAutocomplete);
 
-var _GeoAutocomplete = require('./GeoAutocomplete.less');
-
-var _GeoAutocomplete2 = _interopRequireDefault(_GeoAutocomplete);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }

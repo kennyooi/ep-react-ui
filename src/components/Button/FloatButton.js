@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import ButtonCore from './ButtonCore';
 
-import styleCore from './style.less';
-import style from './FloatButton.less';
+import './style.less';
+import './FloatButton.less';
 
 
 export default class FloatButton extends Component {

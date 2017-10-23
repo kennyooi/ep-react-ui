@@ -2,7 +2,7 @@ import { PureComponent } from 'react';
 import moment from 'moment';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import style from './PickerModalHeader.less';
+import './PickerModalHeader.less';
 
 
 export default class PickerModalHeader extends PureComponent {

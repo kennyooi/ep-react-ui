@@ -5,7 +5,7 @@ import { PureComponent } from 'react';
 import Modal from './Modal';
 import FlatButton from '../Button/FlatButton';
 
-import style from './ConfirmModal.less';
+import './ConfirmModal.less';
 
 
 export default class ConfirmModal extends PureComponent {

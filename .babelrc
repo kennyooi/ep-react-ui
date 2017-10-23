@@ -1,10 +1,18 @@
 {
-  "presets": [
-    ["env", { "targets": { "uglify": false } }],
-    "react"
-  ],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties"
-  ],
+  	"presets": [
+    	["env", { "targets": { "uglify": false } }],
+    	"react"
+  	],
+  	"plugins": [
+    	"transform-object-rest-spread",
+    	"transform-class-properties"
+  	],
+  	"env": {
+		"node": {
+			"ignore": ["**/*.less", '__tests__'],
+			"plugins": [
+				[ "babel-plugin-transform-require-ignore", { "extensions": [".less"] } ]
+			]
+		}
+	}
 }

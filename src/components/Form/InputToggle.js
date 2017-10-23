@@ -4,8 +4,8 @@
 import { PureComponent } from 'react';
 import Ripple from '../Ripple';
 
-import styleCore from './style.less';
-import style from './InputToggle.less';
+import './style.less';
+import './InputToggle.less';
 
 
 export default class InputToggle extends PureComponent {

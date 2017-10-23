@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import CheckboxCore from './CheckboxCore';
 
-import styleCore from './style.less';
-import style from './InputCheckbox.less';
+import './style.less';
+import './InputCheckbox.less';
 
 
 export default class InputCheckbox extends Component {

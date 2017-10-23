@@ -4,9 +4,11 @@
   "description": "EP react UI elements.",
   "main": "build/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack.config.dev.js --open",
-    "build": "babel src -d build",
+    "build:bundle": "cross-env NODE_ENV='production' webpack --config ./webpack.config.prod.js -p",
+    "build:es2015": "cross-env NODE_ENV='production' BABEL_ENV='node' babel src -d build",
+    "build": "npm run build:bundle && npm run build:es2015",
     "build-doc": "webpack --config ./webpack.config.doc.js -p",
+    "dev": "webpack-dev-server --config ./webpack.config.dev.js --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,8 +41,10 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.0",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "less": "^2.7.2",

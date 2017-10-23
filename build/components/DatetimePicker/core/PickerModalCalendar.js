@@ -20,10 +20,6 @@ var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTran
 
 var _Button = require('../../Button');
 
-var _PickerModalCalendar = require('./PickerModalCalendar.less');
-
-var _PickerModalCalendar2 = _interopRequireDefault(_PickerModalCalendar);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }

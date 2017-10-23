@@ -6,7 +6,7 @@ import { isEmpty, map, findIndex } from 'lodash';
 import ListItem from '../ListItem/ListItemCore';
 import InputField from '../Form/InputField';
 
-import style from './Autocomplete.less';
+import './Autocomplete.less';
 
 
 export default class Autocomplete extends PureComponent {

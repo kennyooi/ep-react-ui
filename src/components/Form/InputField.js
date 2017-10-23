@@ -4,7 +4,7 @@
 import { PureComponent } from 'react';
 import { omitBy, isNull, isEmpty } from 'lodash';
 
-import style from './InputField.less';
+import './InputField.less';
 
 export default class InputField extends PureComponent {
 

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import style from './Loader.less';
+import './Loader.less';
 
 
 export default class Loader extends Component {

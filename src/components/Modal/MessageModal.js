@@ -6,7 +6,7 @@ import { isEqual } from 'lodash';
 import Modal from './Modal';
 import IconButton from '../Button/IconButton';
 
-import style from './MessageModal.less';
+import './MessageModal.less';
 
 
 export default class MessageModal extends Component {

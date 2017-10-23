@@ -14,14 +14,6 @@ var _CheckboxCore = require('./CheckboxCore');
 
 var _CheckboxCore2 = _interopRequireDefault(_CheckboxCore);
 
-var _style = require('./style.less');
-
-var _style2 = _interopRequireDefault(_style);
-
-var _InputCheckbox = require('./InputCheckbox.less');
-
-var _InputCheckbox2 = _interopRequireDefault(_InputCheckbox);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }

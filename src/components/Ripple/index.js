@@ -4,7 +4,7 @@
  */
 import { Component } from 'react';
 import { convertStyle } from '../../helpers/waves';
-import style from './style.less';
+import './style.less';
 
 const SPEED = {
 	normal 	: {

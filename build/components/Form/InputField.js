@@ -12,12 +12,6 @@ var _react = require('react');
 
 var _lodash = require('lodash');
 
-var _InputField = require('./InputField.less');
-
-var _InputField2 = _interopRequireDefault(_InputField);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }

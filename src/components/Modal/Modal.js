@@ -6,7 +6,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { map, assign } from 'lodash';
 import { addClass, removeClass } from '../../helpers/styler';
 
-import style from './Modal.less';
+import './Modal.less';
 
 
 export default class Modal extends PureComponent {

@@ -12,7 +12,7 @@ import PickerModalCalendar from './core/PickerModalCalendar';
 import PickerModalYear from './core/PickerModalYear';
 import PickerModalTime from './core/PickerModalTime';
 
-import style from './DatetimePicker.less';
+import './DatetimePicker.less';
 
 
 export default class DatetimePicker extends PureComponent {

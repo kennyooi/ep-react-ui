@@ -14,14 +14,6 @@ var _ButtonCore = require('./ButtonCore');
 
 var _ButtonCore2 = _interopRequireDefault(_ButtonCore);
 
-var _style = require('./style.less');
-
-var _style2 = _interopRequireDefault(_style);
-
-var _FlatButton = require('./FlatButton.less');
-
-var _FlatButton2 = _interopRequireDefault(_FlatButton);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }

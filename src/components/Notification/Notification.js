@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import { isEqual, isEmpty, map, assign, remove, uniqueId } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import style from './Notification.less';
+import './Notification.less';
 
 
 export default class Notification extends PureComponent {

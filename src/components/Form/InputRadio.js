@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import CheckboxCore from './CheckboxCore';
 
-import styleCore from './style.less';
-import style from './InputRadio.less';
+import './style.less';
+import './InputRadio.less';
 
 
 export default class InputRadio extends Component {

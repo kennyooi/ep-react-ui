@@ -3,7 +3,7 @@ import moment from 'moment';
 import { times } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import style from './PickerModalYear.less';
+import './PickerModalYear.less';
 
 
 export default class PickerModalYear extends Component {

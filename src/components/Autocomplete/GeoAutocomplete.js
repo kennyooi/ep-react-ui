@@ -4,7 +4,7 @@
 import { Component } from 'react';
 import SelectAutocomplete from './SelectAutocomplete';
 
-import style from './GeoAutocomplete.less';
+import './GeoAutocomplete.less';
 
 
 export default class GeoAutocomplete extends Component {

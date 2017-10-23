@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import ButtonCore from './ButtonCore';
 
-import styleCore from './style.less';
-import style from './FlatButton.less';
+import './style.less';
+import './FlatButton.less';
 
 
 export default class FlatButton extends Component {

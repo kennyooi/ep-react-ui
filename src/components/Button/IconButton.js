@@ -8,8 +8,8 @@ import { offset } from '../../helpers/waves';
 import ReactTooltip from 'react-tooltip';
 import Ripple from '../Ripple';
 
-import styleCore from './style.less';
-import style from './IconButton.less';
+import './style.less';
+import './IconButton.less';
 
 
 export default class IconButton extends PureComponent {

@@ -14,14 +14,6 @@ var _Ripple = require('../Ripple');
 
 var _Ripple2 = _interopRequireDefault(_Ripple);
 
-var _style = require('./style.less');
-
-var _style2 = _interopRequireDefault(_style);
-
-var _InputToggle = require('./InputToggle.less');
-
-var _InputToggle2 = _interopRequireDefault(_InputToggle);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }

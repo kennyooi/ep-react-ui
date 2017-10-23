@@ -38,10 +38,6 @@ var _PickerModalTime = require('./core/PickerModalTime');
 
 var _PickerModalTime2 = _interopRequireDefault(_PickerModalTime);
 
-var _DatetimePicker = require('./DatetimePicker.less');
-
-var _DatetimePicker2 = _interopRequireDefault(_DatetimePicker);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }

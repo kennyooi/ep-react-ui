@@ -4,8 +4,8 @@
 import { Component } from 'react';
 import ButtonCore from './ButtonCore';
 
-import styleCore from './style.less';
-import style from './GhostButton.less';
+import './style.less';
+import './GhostButton.less';
 
 
 export default class GhostButton extends Component {

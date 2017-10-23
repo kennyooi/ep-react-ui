@@ -4,7 +4,7 @@ import { times, map, padStart } from 'lodash';
 import { addClass, removeClass } from '../../../helpers/styler';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import style from './PickerModalTime.less';
+import './PickerModalTime.less';
 
 
 export default class PickerModalTime extends PureComponent {
