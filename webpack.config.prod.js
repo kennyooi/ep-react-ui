@@ -9,9 +9,9 @@ module.exports = {
     context: path.resolve(__dirname, './src/'),
     entry: './index.js',
     output: {
-        path: path.resolve(__dirname, './dist/'),
-        publicPath: '/',
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, './build/'),
+        // publicPath: '/',
+        filename: 'app.js',
     },
     stats: {
         colors  : true,
@@ -66,7 +66,7 @@ module.exports = {
             PropTypes: 'prop-types',
             classNames: 'classnames',
         }),
-        new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
+        new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
         // new webpack.optimize.UglifyJsPlugin(),
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
     ],

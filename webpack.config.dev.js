@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 // exporter
@@ -8,8 +8,8 @@ module.exports = {
     context: path.resolve(__dirname, './doc/'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './doc/'),
-        publicPath: 'http://localhost:8000/',
+        path: path.resolve(__dirname, './dist/'),
+        // publicPath: '/',
         filename: 'bundle.js',
     },
     stats: {
@@ -32,14 +32,7 @@ module.exports = {
                 use: [ 
                     'style-loader',
                     'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => [
-                                require('autoprefixer')({ browsers: ['last 2 versions'] }),
-                            ]
-                        }
-                    }
+                    'postcss-loader',
                 ]
             },
             {
@@ -47,14 +40,7 @@ module.exports = {
                 use: [ 
                     'style-loader',
                     'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: (loader) => [
-                                require('autoprefixer')({ browsers: ['last 2 versions'] }),
-                            ]
-                        }
-                    },
+                    'postcss-loader',
                     'less-loader' 
                 ]
             },
@@ -76,15 +62,19 @@ module.exports = {
             React: 'react',
             PropTypes: 'prop-types',
             classNames: 'classnames',
+        }),
+        // base HTML 
+        new HtmlWebpackPlugin({
+            template: './index.html',
         })
     ],
     externals: {
 
     },
     devServer: {
-        contentBase: path.join(__dirname, "doc"),
+        contentBase: path.join(__dirname, "dist"),
         host: 'localhost',
-        port: 8000,
+        port: 8080,
         hot: true,
         // headers: { "Access-Control-Allow-Origin": "*" }
     }

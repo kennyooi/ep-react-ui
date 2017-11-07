@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -9,8 +10,8 @@ module.exports = {
     context: path.resolve(__dirname, './doc/'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './doc/'),
-        publicPath: '/',
+        path: path.resolve(__dirname, './dist/'),
+        // publicPath: '/',
         filename: 'bundle.js',
     },
     stats: {
@@ -69,6 +70,10 @@ module.exports = {
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
         // new webpack.optimize.UglifyJsPlugin(),
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
+        // base HTML 
+        new HtmlWebpackPlugin({
+            template: './index.html',
+        })
     ],
     externals: {
 
