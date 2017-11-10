@@ -4,7 +4,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { uniqueId } from 'lodash';
 import { offset } from '../../helpers/waves';
 
 import ReactTooltip from 'react-tooltip';
@@ -21,6 +20,7 @@ export default class IconButton extends PureComponent {
 		theme 		: PropTypes.string, 	// button theme
 		size 		: PropTypes.string, 	// button size
 		tooltip 	: PropTypes.string, 	// enable tooltip for button
+		tooltipId 	: PropTypes.string, 	// unique tooltip ID
 		icon 		: PropTypes.string, 	// Button icon
 	};
 
@@ -33,7 +33,7 @@ export default class IconButton extends PureComponent {
 		super(props);
 
 		if (props.tooltip) {
-  			this.__uniqId = uniqueId('tooltip_');
+  			this.__uniqId = props.tooltipId || (new Date().getTime()).toString();
   		}
 
   		// actions
@@ -72,7 +72,14 @@ export default class IconButton extends PureComponent {
 		));
 
 		// Enable tooltip
+		let inner_props = {};
 		if (tooltip) {
+			inner_props = {
+				"data-tip" : tooltip ? true : undefined,
+				"data-for" : this.__uniqId,
+				"data-offset": "{ 'top': -16 }",
+			};
+
 			childs.push((
 				<ReactTooltip id={this.__uniqId} effect='solid' key="tooltip">
 					{tooltip}
@@ -81,14 +88,9 @@ export default class IconButton extends PureComponent {
 		}
 
 		// Children
-		const inner_props = {
-			"data-tip" : tooltip ? true : undefined,
-			"data-for" : this.__uniqId,
-			className  : icon,
-		};
 		childs.push((
-			<div className="btn-inner" key="inner">
-				<i {...inner_props}></i>
+			<div className="btn-inner" key="inner" {...inner_props}>
+				<i className={icon}></i>
 			</div>
 		));
 
