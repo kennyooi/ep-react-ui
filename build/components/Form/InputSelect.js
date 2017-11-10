@@ -10,7 +10,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lodash = require('lodash');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -120,16 +126,16 @@ var InputSelect = function (_PureComponent) {
 }(_react.PureComponent);
 
 InputSelect.propTypes = {
-	value: PropTypes.oneOfType([// input value
-	PropTypes.string, PropTypes.number]),
-	theme: PropTypes.string, // input theme color
-	label: PropTypes.string, // input label
-	placeholder: PropTypes.string, // input placeholder text
-	hint: PropTypes.string, // input hint
-	disabled: PropTypes.bool, // input disabled
-	inputProps: PropTypes.object, // input props
-	errorText: PropTypes.string, // show error message (doesn't stack with hint)
-	onChange: PropTypes.func // onChange event
+	value: _propTypes2.default.oneOfType([// input value
+	_propTypes2.default.string, _propTypes2.default.number]),
+	theme: _propTypes2.default.string, // input theme color
+	label: _propTypes2.default.string, // input label
+	placeholder: _propTypes2.default.string, // input placeholder text
+	hint: _propTypes2.default.string, // input hint
+	disabled: _propTypes2.default.bool, // input disabled
+	inputProps: _propTypes2.default.object, // input props
+	errorText: _propTypes2.default.string, // show error message (doesn't stack with hint)
+	onChange: _propTypes2.default.func // onChange event
 };
 InputSelect.defaultProps = {
 	className: '',

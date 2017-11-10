@@ -1,7 +1,7 @@
 /**
  * Modal component
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import { isEqual, isEmpty, map, assign, remove, uniqueId } from 'lodash';

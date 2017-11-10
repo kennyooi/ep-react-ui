@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lodash = require('lodash');
 
 var _ListItemCore = require('../ListItem/ListItemCore');
@@ -305,14 +309,14 @@ var Autocomplete = function (_PureComponent) {
 }(_react.PureComponent);
 
 Autocomplete.propTypes = {
-    value: PropTypes.string, // input value
-    wrapperClassName: PropTypes.string, // wrapper className
-    className: PropTypes.string, // input className
-    delay: PropTypes.number, // pause delay
-    loadItems: PropTypes.func, // async load items, must return a promise: func(val)
-    onRender: PropTypes.func, // method to render
-    onSelect: PropTypes.func, // autocomplete selected
-    debugMode: PropTypes.bool // enable debug mode
+    value: _propTypes2.default.string, // input value
+    wrapperClassName: _propTypes2.default.string, // wrapper className
+    className: _propTypes2.default.string, // input className
+    delay: _propTypes2.default.number, // pause delay
+    loadItems: _propTypes2.default.func, // async load items, must return a promise: func(val)
+    onRender: _propTypes2.default.func, // method to render
+    onSelect: _propTypes2.default.func, // autocomplete selected
+    debugMode: _propTypes2.default.bool // enable debug mode
 };
 Autocomplete.defaultProps = {
     value: '',

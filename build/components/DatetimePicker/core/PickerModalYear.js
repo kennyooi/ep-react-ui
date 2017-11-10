@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -161,11 +165,11 @@ var PickerModalYear = function (_Component) {
 }(_react.Component);
 
 PickerModalYear.propTypes = {
-	momentValue: PropTypes.object, // current picker moment object
-	min: PropTypes.object, // min date value, moment default format
-	max: PropTypes.object, // max date value, moment default format
-	yearsGap: PropTypes.number, // years gap from this year 
-	onChange: PropTypes.func // when calendar date changed
+	momentValue: _propTypes2.default.object, // current picker moment object
+	min: _propTypes2.default.object, // min date value, moment default format
+	max: _propTypes2.default.object, // max date value, moment default format
+	yearsGap: _propTypes2.default.number, // years gap from this year 
+	onChange: _propTypes2.default.func // when calendar date changed
 };
 PickerModalYear.defaultProps = {
 	yearsGap: 5

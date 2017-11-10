@@ -1,7 +1,7 @@
 /**
  * Enhanced button components (internal use)
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { offset } from '../../helpers/waves';

@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lodash = require('lodash');
 
 var _Modal = require('./Modal');
@@ -112,11 +116,11 @@ var MessageModal = function (_Component) {
 }(_react.Component);
 
 MessageModal.propTypes = {
-	isShow: PropTypes.bool, // Modal show status
-	type: PropTypes.string, // Modal type, 'success', 'error', 'info'
-	icon: PropTypes.string, // Modal header icon
-	disableClose: PropTypes.bool, // disable close
-	onClose: PropTypes.func // triggered when modal closed
+	isShow: _propTypes2.default.bool, // Modal show status
+	type: _propTypes2.default.string, // Modal type, 'success', 'error', 'info'
+	icon: _propTypes2.default.string, // Modal header icon
+	disableClose: _propTypes2.default.bool, // disable close
+	onClose: _propTypes2.default.func // triggered when modal closed
 };
 MessageModal.defaultProps = {
 	isShow: false,

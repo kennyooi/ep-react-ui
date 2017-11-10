@@ -10,7 +10,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lodash = require('lodash');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -176,20 +182,20 @@ var InputField = function (_PureComponent) {
 }(_react.PureComponent);
 
 InputField.propTypes = {
-	value: PropTypes.string, // input value
-	type: PropTypes.string, // input type
-	theme: PropTypes.string, // input theme color
-	label: PropTypes.string, // input label
-	icon: PropTypes.string, // input icon classes
-	placeholder: PropTypes.string, // input placeholder text
-	hint: PropTypes.string, // input hint
-	disabled: PropTypes.bool, // input disabled
-	readOnly: PropTypes.bool, // input readonly prop
-	inputProps: PropTypes.object, // input props
-	maxlength: PropTypes.number, // input max length
-	errorText: PropTypes.string, // show error message (doesn't stack with hint)
-	multiline: PropTypes.number, // convert to textarea rows if > 0
-	onChange: PropTypes.func // onChange event
+	value: _propTypes2.default.string, // input value
+	type: _propTypes2.default.string, // input type
+	theme: _propTypes2.default.string, // input theme color
+	label: _propTypes2.default.string, // input label
+	icon: _propTypes2.default.string, // input icon classes
+	placeholder: _propTypes2.default.string, // input placeholder text
+	hint: _propTypes2.default.string, // input hint
+	disabled: _propTypes2.default.bool, // input disabled
+	readOnly: _propTypes2.default.bool, // input readonly prop
+	inputProps: _propTypes2.default.object, // input props
+	maxlength: _propTypes2.default.number, // input max length
+	errorText: _propTypes2.default.string, // show error message (doesn't stack with hint)
+	multiline: _propTypes2.default.number, // convert to textarea rows if > 0
+	onChange: _propTypes2.default.func // onChange event
 };
 InputField.defaultProps = {
 	className: '',

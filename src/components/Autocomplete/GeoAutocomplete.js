@@ -1,7 +1,7 @@
 /**
  * Geo location Autocomplete (using SelectAutocomplete) 
  */
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SelectAutocomplete from './SelectAutocomplete';
 

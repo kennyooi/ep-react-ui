@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
@@ -153,7 +157,7 @@ var ListItemCore = function (_Component) {
 }(_react.Component);
 
 ListItemCore.propTypes = {
-	TagName: PropTypes.string // element tag-name 
+	TagName: _propTypes2.default.string // element tag-name 
 };
 ListItemCore.defaultProps = {
 	TagName: 'div',

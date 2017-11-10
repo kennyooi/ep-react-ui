@@ -1,7 +1,7 @@
 /**
  * Select Automcomplete component (extends Autocomplete)
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty, map, findIndex } from 'lodash';
 import Autocomplete from './Autocomplete';

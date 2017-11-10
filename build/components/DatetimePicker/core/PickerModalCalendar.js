@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -288,12 +292,12 @@ var PickerModalCalendar = function (_PureComponent) {
 }(_react.PureComponent);
 
 PickerModalCalendar.propTypes = {
-	momentValue: PropTypes.object, // current picker moment object
-	min: PropTypes.object, // min date value, moment object
-	max: PropTypes.object, // max date value, moment object
-	start_from: PropTypes.number, // calendar start from day 
-	onChange: PropTypes.func, // when calendar date changed
-	onRenderDay: PropTypes.func // apply extra custom classNames to day
+	momentValue: _propTypes2.default.object, // current picker moment object
+	min: _propTypes2.default.object, // min date value, moment object
+	max: _propTypes2.default.object, // max date value, moment object
+	start_from: _propTypes2.default.number, // calendar start from day 
+	onChange: _propTypes2.default.func, // when calendar date changed
+	onRenderDay: _propTypes2.default.func // apply extra custom classNames to day
 };
 PickerModalCalendar.defaultProps = {
 	start_from: 1

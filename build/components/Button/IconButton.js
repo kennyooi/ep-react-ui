@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _lodash = require('lodash');
 
 var _waves = require('../../helpers/waves');
@@ -199,11 +203,11 @@ var IconButton = function (_PureComponent) {
 }(_react.PureComponent);
 
 IconButton.propTypes = {
-	TagName: PropTypes.string, // Tagname for button
-	theme: PropTypes.string, // button theme
-	size: PropTypes.string, // button size
-	tooltip: PropTypes.string, // enable tooltip for button
-	icon: PropTypes.string // Button icon
+	TagName: _propTypes2.default.string, // Tagname for button
+	theme: _propTypes2.default.string, // button theme
+	size: _propTypes2.default.string, // button size
+	tooltip: _propTypes2.default.string, // enable tooltip for button
+	icon: _propTypes2.default.string // Button icon
 };
 IconButton.defaultProps = {
 	TagName: 'button',

@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _CheckboxCore = require('./CheckboxCore');
 
 var _CheckboxCore2 = _interopRequireDefault(_CheckboxCore);
@@ -59,10 +63,10 @@ var InputRadio = function (_Component) {
 }(_react.Component);
 
 InputRadio.propTypes = {
-	theme: PropTypes.string, // radio theme color
-	checked: PropTypes.bool, // radio checked status
-	disabled: PropTypes.bool, // radio disabled
-	onChange: PropTypes.func // onChange event
+	theme: _propTypes2.default.string, // radio theme color
+	checked: _propTypes2.default.bool, // radio checked status
+	disabled: _propTypes2.default.bool, // radio disabled
+	onChange: _propTypes2.default.func // onChange event
 };
 InputRadio.defaultProps = {
 	className: '',

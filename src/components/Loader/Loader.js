@@ -1,9 +1,9 @@
-import { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import './Loader.less';
 
 
-export default class Loader extends Component {
+export default class Loader extends PureComponent {
 
 	constructor(props) {
 		super(props);

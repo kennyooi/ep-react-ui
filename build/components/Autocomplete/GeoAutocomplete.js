@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _SelectAutocomplete = require('./SelectAutocomplete');
 
 var _SelectAutocomplete2 = _interopRequireDefault(_SelectAutocomplete);
@@ -158,7 +162,7 @@ var GeoAutocomplete = function (_Component) {
 }(_react.Component);
 
 GeoAutocomplete.propTypes = {
-	acOptions: PropTypes.object
+	acOptions: _propTypes2.default.object
 };
 GeoAutocomplete.defaultProps = {
 	acOptions: {}

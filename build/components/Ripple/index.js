@@ -8,7 +8,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _waves = require('../../helpers/waves');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -137,8 +143,8 @@ var RippleEffect = function (_Component) {
 }(_react.Component);
 
 RippleEffect.propTypes = {
-	theme: PropTypes.string, // type of ripple effect : light*, dark
-	speed: PropTypes.string // speed of ripple effect
+	theme: _propTypes2.default.string, // type of ripple effect : light*, dark
+	speed: _propTypes2.default.string // speed of ripple effect
 };
 RippleEffect.defaultProps = {
 	theme: 'light',

@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -184,10 +188,10 @@ var PickerModalHeader = function (_PureComponent) {
 }(_react.PureComponent);
 
 PickerModalHeader.propTypes = {
-	momentValue: PropTypes.object, // current picker moment object
-	type: PropTypes.string, // datepicker type
-	view: PropTypes.string, // active view: 'date'*, 'year'
-	disableYear: PropTypes.bool, // disable year view
-	disableTime: PropTypes.bool // disable time view
+	momentValue: _propTypes2.default.object, // current picker moment object
+	type: _propTypes2.default.string, // datepicker type
+	view: _propTypes2.default.string, // active view: 'date'*, 'year'
+	disableYear: _propTypes2.default.bool, // disable year view
+	disableTime: _propTypes2.default.bool // disable time view
 };
 exports.default = PickerModalHeader;

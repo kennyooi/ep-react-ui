@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Ripple = require('../Ripple');
 
 var _Ripple2 = _interopRequireDefault(_Ripple);
@@ -135,11 +139,11 @@ var CheckboxCore = function (_PureComponent) {
 }(_react.PureComponent);
 
 CheckboxCore.propTypes = {
-	TagName: PropTypes.string, // wrapper tag
-	theme: PropTypes.string, // checkbox theme color
-	checked: PropTypes.bool, // checkbox checked status
-	disabled: PropTypes.bool, // checkbox disabled
-	onChange: PropTypes.func // onChange event
+	TagName: _propTypes2.default.string, // wrapper tag
+	theme: _propTypes2.default.string, // checkbox theme color
+	checked: _propTypes2.default.bool, // checkbox checked status
+	disabled: _propTypes2.default.bool, // checkbox disabled
+	onChange: _propTypes2.default.func // onChange event
 };
 CheckboxCore.defaultProps = {
 	TagName: 'label',

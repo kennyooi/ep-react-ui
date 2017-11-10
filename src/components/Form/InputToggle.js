@@ -1,7 +1,7 @@
 /**
  * Normal toggle input
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Ripple from '../Ripple';
 

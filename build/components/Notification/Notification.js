@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = require('react-dom');
 
 var _lodash = require('lodash');
@@ -148,10 +152,10 @@ var Notification = function (_PureComponent) {
 }(_react.PureComponent);
 
 Notification.propTypes = {
-	fadeoutTime: PropTypes.number,
-	iconError: PropTypes.string,
-	iconSuccess: PropTypes.string,
-	iconInfo: PropTypes.string
+	fadeoutTime: _propTypes2.default.number,
+	iconError: _propTypes2.default.string,
+	iconSuccess: _propTypes2.default.string,
+	iconInfo: _propTypes2.default.string
 };
 Notification.defaultProps = {
 	fadeoutTime: 3000,

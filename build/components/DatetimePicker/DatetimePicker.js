@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
@@ -247,19 +251,19 @@ var DatetimePicker = function (_PureComponent) {
 }(_react.PureComponent);
 
 DatetimePicker.propTypes = {
-	value: PropTypes.string, // input value, moment default format
-	type: PropTypes.string, // datePicker type, ['date', 'datetime', 'time']
-	min: PropTypes.object, // min date value, moment default format
-	max: PropTypes.object, // max date value, moment default format
-	format: PropTypes.string, // value format
-	timeInterval: PropTypes.number, // time interval between minutes
-	displayFormat: PropTypes.string, // display format
-	disableYear: PropTypes.bool, // disable year change
-	inputProps: PropTypes.object, // extra props for input
-	txtCancel: PropTypes.string, // cancel button text
-	txtConfirm: PropTypes.string, // confirm button text
-	onChange: PropTypes.func, // trigger when date changed
-	onRenderDay: PropTypes.func // apply extra custom classNames to day
+	value: _propTypes2.default.string, // input value, moment default format
+	type: _propTypes2.default.string, // datePicker type, ['date', 'datetime', 'time']
+	min: _propTypes2.default.object, // min date value, moment default format
+	max: _propTypes2.default.object, // max date value, moment default format
+	format: _propTypes2.default.string, // value format
+	timeInterval: _propTypes2.default.number, // time interval between minutes
+	displayFormat: _propTypes2.default.string, // display format
+	disableYear: _propTypes2.default.bool, // disable year change
+	inputProps: _propTypes2.default.object, // extra props for input
+	txtCancel: _propTypes2.default.string, // cancel button text
+	txtConfirm: _propTypes2.default.string, // confirm button text
+	onChange: _propTypes2.default.func, // trigger when date changed
+	onRenderDay: _propTypes2.default.func // apply extra custom classNames to day
 };
 DatetimePicker.defaultProps = {
 	type: 'datetime',

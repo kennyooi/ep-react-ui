@@ -1,7 +1,7 @@
 /**
  * Confirmation Modal, using Modal
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 import FlatButton from '../Button/FlatButton';

@@ -10,6 +10,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Modal = require('./Modal');
 
 var _Modal2 = _interopRequireDefault(_Modal);
@@ -190,12 +194,12 @@ var ConfirmModal = function (_PureComponent) {
 }(_react.PureComponent);
 
 ConfirmModal.propTypes = {
-	isShow: PropTypes.bool, // Modal show status
-	isSecure: PropTypes.bool, // enable double confirm 
-	textCancel: PropTypes.string, // cancel button text
-	textConfirm: PropTypes.string, // confirm button text
-	onConfirm: PropTypes.func, // triggered when confirmed
-	onRequestClose: PropTypes.func // triggered when canceled
+	isShow: _propTypes2.default.bool, // Modal show status
+	isSecure: _propTypes2.default.bool, // enable double confirm 
+	textCancel: _propTypes2.default.string, // cancel button text
+	textConfirm: _propTypes2.default.string, // confirm button text
+	onConfirm: _propTypes2.default.func, // triggered when confirmed
+	onRequestClose: _propTypes2.default.func // triggered when canceled
 };
 ConfirmModal.defaultProps = {
 	isShow: false,

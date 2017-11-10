@@ -14,6 +14,10 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _waves = require('../../helpers/waves');
 
 var _Ripple = require('../Ripple');
@@ -209,10 +213,10 @@ var ButtonCore = function (_PureComponent) {
 }(_react.PureComponent);
 
 ButtonCore.propTypes = {
-	TagName: PropTypes.string, // button tag
-	theme: PropTypes.string, // button color
-	size: PropTypes.string, // button size
-	rippleTheme: PropTypes.string // ripple theme
+	TagName: _propTypes2.default.string, // button tag
+	theme: _propTypes2.default.string, // button color
+	size: _propTypes2.default.string, // button size
+	rippleTheme: _propTypes2.default.string // ripple theme
 };
 ButtonCore.defaultProps = {
 	TagName: 'button',

@@ -10,11 +10,17 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = require('react-dom');
 
 var _lodash = require('lodash');
 
 var _styler = require('../../helpers/styler');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -180,11 +186,11 @@ var Modal = function (_PureComponent) {
 }(_react.PureComponent);
 
 Modal.propTypes = {
-	isShow: PropTypes.bool, // visibility of modal
-	closeDelay: PropTypes.number, // animation time
-	onRequestClose: PropTypes.func, // trigger modal close
-	onOpen: PropTypes.func, // trigger when modal opened
-	onClose: PropTypes.func // trigger when modal closed
+	isShow: _propTypes2.default.bool, // visibility of modal
+	closeDelay: _propTypes2.default.number, // animation time
+	onRequestClose: _propTypes2.default.func, // trigger modal close
+	onOpen: _propTypes2.default.func, // trigger when modal opened
+	onClose: _propTypes2.default.func // trigger when modal closed
 };
 Modal.defaultProps = {
 	name: 'Modal', // advanced props - Created Modal className

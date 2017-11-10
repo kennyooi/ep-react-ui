@@ -1,7 +1,7 @@
 /**
  * Enhanced checkbox & radio components (internal use)
  */
-import { PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Ripple from '../Ripple';
 
