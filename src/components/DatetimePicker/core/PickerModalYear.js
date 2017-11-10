@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import moment from 'moment';
 import { times } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';

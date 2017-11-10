@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import TableProps from '../TableProps';
 import { Button, FlatButton, Modal } from '../../../src/index';
 

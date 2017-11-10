@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import projectPackage from '../../package.json';
 import { GhostButton } from '../../src/index';
 import style from './LandingPage.less';

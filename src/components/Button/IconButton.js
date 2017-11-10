@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { uniqueId } from 'lodash';
 import { offset } from '../../helpers/waves';
 

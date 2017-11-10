@@ -62,11 +62,6 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production'),
             __DEV__: JSON.stringify('false'),
         }),
-        new webpack.ProvidePlugin({
-            React: 'react',
-            PropTypes: 'prop-types',
-            classNames: 'classnames',
-        }),
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
         // new webpack.optimize.UglifyJsPlugin(),
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' })

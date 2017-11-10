@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 import TableProps from '../TableProps';
 import { InputCheckbox, InputRadio, InputToggle } from '../../../src/index';

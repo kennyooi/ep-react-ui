@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Modal from './Modal';
 import FlatButton from '../Button/FlatButton';
 

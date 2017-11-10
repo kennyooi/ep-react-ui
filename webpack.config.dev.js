@@ -58,11 +58,6 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('development'),
             __DEV__: JSON.stringify('true'),
         }),
-        new webpack.ProvidePlugin({
-            React: 'react',
-            PropTypes: 'prop-types',
-            classNames: 'classnames',
-        }),
         // base HTML 
         new HtmlWebpackPlugin({
             template: './index.html',

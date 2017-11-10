@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import DocButtonBasic from './DocButton';
 import DocFlatButton from './DocFlatButton';
 import DocGhostButton from './DocGhostButton';

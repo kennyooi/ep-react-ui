@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { offset } from '../../helpers/waves';
 import Ripple from '../Ripple';

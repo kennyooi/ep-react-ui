@@ -3,6 +3,7 @@
  */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { map, assign } from 'lodash';
 import { addClass, removeClass } from '../../helpers/styler';

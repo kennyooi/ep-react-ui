@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { isEqual } from 'lodash';
 import Modal from './Modal';
 import IconButton from '../Button/IconButton';

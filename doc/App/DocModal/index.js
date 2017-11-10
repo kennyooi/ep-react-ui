@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
 
 import DocModalBasic from './DocModalBasic';
