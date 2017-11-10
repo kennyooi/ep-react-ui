@@ -10,7 +10,7 @@ module.exports = {
     context: path.resolve(__dirname, './doc/'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './dist/'),
+        path: path.resolve(__dirname, './docs/'),
         // publicPath: '/',
         filename: 'bundle.js',
     },

@@ -1,13 +1,13 @@
 {
   "name": "ep-react-ui",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "EP react UI elements.",
   "main": "build/index.js",
   "scripts": {
     "build:bundle": "cross-env NODE_ENV='production' webpack --config ./webpack.config.prod.js -p",
     "build:es2015": "cross-env NODE_ENV='production' BABEL_ENV='node' babel src -d build",
     "build": "rimraf ./build && npm run build:es2015 && npm run build:bundle",
-    "build:doc": "rimraf ./dist && webpack --config ./webpack.config.doc.js -p",
+    "build:doc": "rimraf ./docs && webpack --config ./webpack.config.doc.js -p",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,11 +27,11 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-tooltip": "^3.3.0"
+    "react-tooltip": "^3.4.0"
   },
   "devDependencies": {
     "ajv": "^5.2.2",
@@ -57,6 +57,14 @@
     "webpack": "^3.5.6",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.7.1"
+  },
+  "peerDependencies": {
+    "classnames": "^2.0.0",
+    "lodash": "^4.16.0",
+    "moment": "^2.0.0",
+    "prop-types": "^15.6.0 || ^16.0.0",
+    "react": "^15.6.0 || ^16.0.0",
+    "react-dom": "^15.6.0 || ^16.0.0"
   },
   "browserslist": [
     "> 5%"
