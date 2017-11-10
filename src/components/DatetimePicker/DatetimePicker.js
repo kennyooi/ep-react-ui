@@ -2,6 +2,7 @@
  * Date picker input
  */
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { isEqual } from 'lodash';
 import { Modal } from '../Modal';

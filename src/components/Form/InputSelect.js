@@ -2,6 +2,7 @@
  * Normal input text field
  */
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { omitBy, isNull } from 'lodash';
 
 import './InputSelect.less';

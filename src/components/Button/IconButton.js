@@ -2,6 +2,7 @@
  * Icon Button
  */
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { uniqueId } from 'lodash';
 import { offset } from '../../helpers/waves';
 

@@ -2,6 +2,7 @@
  * Normal radio input
  */
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import CheckboxCore from './CheckboxCore';
 
 import './style.less';

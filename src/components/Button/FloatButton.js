@@ -2,6 +2,7 @@
  * Float Button (using ButtonCore)
  */
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import ButtonCore from './ButtonCore';
 
 import './style.less';

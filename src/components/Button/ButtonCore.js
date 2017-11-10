@@ -3,6 +3,7 @@
  */
 import { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { offset } from '../../helpers/waves';
 
 import Ripple from '../Ripple';

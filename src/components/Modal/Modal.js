@@ -2,6 +2,7 @@
  * Modal component
  */
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { map, assign } from 'lodash';
 import { addClass, removeClass } from '../../helpers/styler';

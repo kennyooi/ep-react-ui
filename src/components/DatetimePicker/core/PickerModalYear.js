@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { times } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';

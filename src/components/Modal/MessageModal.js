@@ -2,6 +2,7 @@
  * Message Modal (using Modal)
  */
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { isEqual } from 'lodash';
 import Modal from './Modal';
 import IconButton from '../Button/IconButton';

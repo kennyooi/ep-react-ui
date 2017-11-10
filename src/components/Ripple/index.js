@@ -3,6 +3,7 @@
  * @ref -> https://github.com/Dogfalo/materialize/blob/master/js/waves.js
  */
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { convertStyle } from '../../helpers/waves';
 import './style.less';
 

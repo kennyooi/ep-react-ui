@@ -2,6 +2,7 @@
  * Automcomplete component
  */
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { isEmpty, map, findIndex } from 'lodash';
 import ListItem from '../ListItem/ListItemCore';
 import InputField from '../Form/InputField';

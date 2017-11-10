@@ -1,4 +1,5 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { times, map, padStart } from 'lodash';
 import { addClass, removeClass } from '../../../helpers/styler';
