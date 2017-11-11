@@ -18,8 +18,7 @@ export default class LandingPage extends Component {
 								TagName="a"
 								theme="white"
 								size="lg"
-								target="_blank"
-								href="http://www.google.com"
+								href={projectPackage.repository.url}
 							>Github Page</GhostButton>
 						</div>
 						<div className="LandingPage-hero-ver">version {projectPackage.version}</div>
