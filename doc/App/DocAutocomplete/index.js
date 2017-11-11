@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-import DocAutocompleteBasic from './DocAutocomplete';
+import DocAutocomplete from './DocAutocomplete';
+import DocSelectAutocomplete from './DocSelectAutocomplete';
+import DocGeoAutocomplete from './DocGeoAutocomplete';
 
 
-export default class DocAutocomplete extends Component {
+export default class DocAutocompletePage extends Component {
 
 	constructor(props) {
 		super(props);
@@ -19,13 +21,19 @@ export default class DocAutocomplete extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Autocomplete Component</h1>
-						<h4>EP modal component. *[components/common]</h4>
+						<p>Autocomplete, suggestion, & Geolocation suggestion input.</p>
 					</div>
 				</header>
 
 				<div className="page-content">
 					<div className="container">
-						<DocAutocompleteBasic />
+						<DocAutocomplete />
+						<hr className="seperator" />
+
+						<DocSelectAutocomplete />
+						<hr className="seperator" />
+
+						<DocGeoAutocomplete />
 					</div>
 				</div>
 			</div>

@@ -26,12 +26,6 @@ export default class LandingPage extends Component {
 
 					</div>
 				</header>
-
-				<div className="page-content">
-					<div className="container">
-						
-					</div>
-				</div>
 			</div>
 		)
 	}

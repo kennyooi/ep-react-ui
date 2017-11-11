@@ -21,7 +21,7 @@ export default class DocForm extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Form Components</h1>
-						<h4>EP form components. *[components/common]</h4>
+						<p>EP form components set.</p>
 					</div>
 				</header>
 

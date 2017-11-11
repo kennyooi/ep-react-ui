@@ -10,7 +10,7 @@ export default class DocNotification extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Notification Component</h1>
-						<h4>React medium-draft plugin. *[components/common]</h4>
+						<p>This component will generate a push notifications section on screen.</p>
 					</div>
 				</header>
 

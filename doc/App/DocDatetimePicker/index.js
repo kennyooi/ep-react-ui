@@ -10,7 +10,7 @@ export default class DocDatetimePicker extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>DatetimePicker Component</h1>
-						<h4>EP modal component. *[components/common]</h4>
+						<p>Date picker, Datetime picker, Time picker components.</p>
 					</div>
 				</header>
 

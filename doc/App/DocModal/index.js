@@ -13,7 +13,7 @@ export default class DocModal extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Modal Component</h1>
-						<h4>EP modal component. *[components/common]</h4>
+						<p>Modal components set.</p>
 					</div>
 				</header>
 

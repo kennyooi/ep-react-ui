@@ -10,7 +10,7 @@ export default class DocLoader extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Loader Component</h1>
-						<h4>Loading spinner</h4>
+						<p>Loading spinner.</p>
 					</div>
 				</header>
 

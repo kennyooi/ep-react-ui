@@ -14,7 +14,7 @@ export default class DocButton extends Component {
 				<header className="page-title">
 					<div className="container">
 						<h1>Button Components</h1>
-						<h4>EP button components. *[components/common]</h4>
+						<p>EP buttons set.</p>
 					</div>
 				</header>
 
