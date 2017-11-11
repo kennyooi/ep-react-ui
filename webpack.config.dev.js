@@ -5,10 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // exporter
 module.exports = {
-    context: path.resolve(__dirname, './doc/'),
+    context: path.resolve(__dirname, './sample/'),
     entry: './app.js',
     output: {
-        path: path.resolve(__dirname, './dist/'),
+        path: path.resolve(__dirname, './docs/'),
         // publicPath: '/',
         filename: 'bundle.js',
     },
@@ -67,7 +67,7 @@ module.exports = {
 
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, "docs"),
         host: 'localhost',
         port: 8080,
         hot: true,

@@ -1,5 +1,5 @@
 # EP React UI Components
-Basic React UI components. 
+React basic UI components used in EP. 
 Plug & use!
 Happy coding!
 
@@ -18,18 +18,19 @@ You can simply install from NPM package with command below.
 $ npm install -s 'ep-react-ui'
 ```
 
+### Use case
+Import components you want to use and refer to [demo] for all available props for components.
+```
+import { Button, Autocomplete } from 'ep-react-ui'
+```
+
 ### Development
-Run documentation `dev` mode.
+Run `dev` mode.
 ```
 $ npm run dev
 ```
 
-Bundle documentation related assets to `doc` directory.
-```
-$ npm run build-doc
-```
-
-Bundle `bundle.js` to `dist` directory.
+Build all related package.
 ```
 $ npm run build
 ```
@@ -44,6 +45,7 @@ MIT
 [lodash]: <https://lodash.com/>
 [PropTypes]: <https://facebook.github.io/react/docs/typechecking-with-proptypes.html>
 [classnames]: <https://github.com/JedWatson/classnames>
+[demo]: <https://kennyooi.github.io/ep-react-ui/>
 
 ### Changes
 Version 0.1     - First version.
