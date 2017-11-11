@@ -6,8 +6,8 @@
   "scripts": {
     "build:bundle": "cross-env NODE_ENV='production' webpack --config ./webpack.config.prod.js -p",
     "build:es2015": "cross-env NODE_ENV='production' BABEL_ENV='node' babel src -d build",
-    "build": "rimraf ./build && npm run build:es2015 && npm run build:bundle",
     "build:doc": "rimraf ./docs && webpack --config ./webpack.config.doc.js -p",
+    "build": "rimraf ./build && npm run build:es2015 && npm run build:bundle && npm run build:doc",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
