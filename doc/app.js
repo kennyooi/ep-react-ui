@@ -12,6 +12,7 @@ import DocForm from './App/DocForm/index';
 import DocAutocomplete from './App/DocAutocomplete/index';
 import DocDatetimePicker from './App/DocDatetimePicker/index';
 import DocNotification from './App/DocNotification/index';
+import DocInView from './App/DocInView/index';
 import DocLoader from './App/DocLoader/index';
 
 import style from './app.less';
@@ -60,6 +61,12 @@ const __ROUTES = [
 		name 	: 'Notification',
 		component : DocNotification,
 		route 	: '/notification',
+	},
+	{
+		id 		: 'inview',
+		name 	: 'InView',
+		component : DocInView,
+		route 	: '/inview',
 	},
 	{
 		id 		: 'loader',

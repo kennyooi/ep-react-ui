@@ -1,0 +1,21 @@
+@import "../../less/variables";
+
+.LazyImage{
+	display: inline-block;
+	.img{
+		display: block;
+		opacity: 0;
+		transition: opacity 1.5s;
+	}
+	&.__inview{
+		.img{
+			opacity: 1;
+		}
+	}
+
+	div.img{
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}

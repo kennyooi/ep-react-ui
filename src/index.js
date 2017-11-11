@@ -6,4 +6,5 @@ export { Modal, ConfirmModal, MessageModal } from './components/Modal';
 export { Autocomplete, SelectAutocomplete, GeoAutocomplete } from './components/Autocomplete';
 export { DatetimePicker } from './components/DatetimePicker';
 export { Notification } from './components/Notification';
+export { InView, LazyImage } from './components/InView';
 export { Loader } from './components/Loader';
