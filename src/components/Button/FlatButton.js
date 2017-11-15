@@ -2,8 +2,8 @@
  * Flat Button (using ButtonCore)
  */
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ButtonCore from './ButtonCore';
 
 import './style.less';
@@ -12,21 +12,28 @@ import './FlatButton.less';
 
 export default class FlatButton extends Component {
 
-	static defaultProps = {
-		className 	: '',
-	};
+    static propTypes = {
+        children    : PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.node
+        ])
+    };
 
-	render() {
-		const { children, className, ...others } = this.props;
+    static defaultProps = {
+        className   : ''
+    };
 
-		return (
-			<ButtonCore 
-				{...others}
-				className={classNames('btn-flat', className)}
-				rippleTheme="default"
-			>
-				{children}
-			</ButtonCore>
-		)
-	}
-} 
+    render() {
+        const { children, className, ...others } = this.props;
+
+        return (
+            <ButtonCore
+                {...others}
+                className={classNames('btn-flat', className)}
+                rippleTheme="default"
+            >
+                {children}
+            </ButtonCore>
+        );
+    }
+}

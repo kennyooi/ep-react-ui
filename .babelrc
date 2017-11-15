@@ -1,9 +1,13 @@
 {
   	"presets": [
-    	["env", { "targets": { "uglify": false } }],
+    	["env", { 
+        "modules": false,
+        "targets": { "uglify": false } 
+      }],
     	"react"
   	],
   	"plugins": [
+      "lodash",
     	"transform-object-rest-spread",
     	"transform-class-properties"
   	],

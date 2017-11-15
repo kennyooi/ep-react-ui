@@ -12,20 +12,27 @@ import './GhostButton.less';
 
 export default class GhostButton extends Component {
 
-	static defaultProps = {
-		className 	: '',
-	};
+    static propTypes = {
+        children    : PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.node
+        ])
+    };
 
-	render() {
-		const { children, className, ...others } = this.props;
+    static defaultProps = {
+        className   : ''
+    };
 
-		return (
-			<ButtonCore 
-				{...others}
-				className={classNames('btn-ghost', className)}
-			>
-				{children}
-			</ButtonCore>
-		)
-	}
-} 
+    render() {
+        const { children, className, ...others } = this.props;
+
+        return (
+            <ButtonCore
+                {...others}
+                className={classNames('btn-ghost', className)}
+            >
+                {children}
+            </ButtonCore>
+        );
+    }
+}

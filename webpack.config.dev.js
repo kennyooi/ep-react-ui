@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './docs/'),
         // publicPath: '/',
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     stats: {
         colors  : true,
@@ -29,21 +29,21 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 
+                use: [
                     'style-loader',
                     'css-loader',
-                    'postcss-loader',
+                    'postcss-loader'
                 ]
             },
             {
                 test: /\.less$/,
-                use: [ 
+                use: [
                     'style-loader',
                     'css-loader',
                     'postcss-loader',
-                    'less-loader' 
+                    'less-loader'
                 ]
-            },
+            }
         ]
     },
     plugins: [
@@ -56,21 +56,21 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
-            __DEV__: JSON.stringify('true'),
+            __DEV__: JSON.stringify('true')
         }),
-        // base HTML 
+        // base HTML
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './index.html'
         })
     ],
     externals: {
 
     },
     devServer: {
-        contentBase: path.join(__dirname, "docs"),
+        contentBase: path.join(__dirname, 'docs'),
         host: 'localhost',
         port: 8080,
-        hot: true,
-        // headers: { "Access-Control-Allow-Origin": "*" }
+        hot: true
+        // headers: { 'Access-Control-Allow-Origin': '*' }
     }
 };

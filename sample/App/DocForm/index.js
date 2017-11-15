@@ -7,36 +7,28 @@ import DocInputCheckbox from './DocInputCheckbox';
 
 export default class DocForm extends Component {
 
-	constructor(props) {
-		super(props);
+    render() {
+        return (
+            <div className="page">
+                <header className="page-title">
+                    <div className="container">
+                        <h1>Form Components</h1>
+                        <p>EP form components set.</p>
+                    </div>
+                </header>
 
-		this.state = {
-			input 	: {},
-		};
-	}
+                <div className="page-content">
+                    <div className="container">
+                        <DocInputField />
+                        <hr className="seperator" />
 
-	render() {
-		return (
-			<div className="page">
-				<header className="page-title">
-					<div className="container">
-						<h1>Form Components</h1>
-						<p>EP form components set.</p>
-					</div>
-				</header>
+                        <DocInputSelect />
+                        <hr className="seperator" />
 
-				<div className="page-content">
-					<div className="container">
-						<DocInputField />
-						<hr className="seperator" />
-
-						<DocInputSelect />
-						<hr className="seperator" />
-
-						<DocInputCheckbox />
-					</div>
-				</div>
-			</div>
-		)
-	}
+                        <DocInputCheckbox />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }

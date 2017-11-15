@@ -2,121 +2,119 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import moment from 'moment';
-import { times } from 'lodash';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './PickerModalYear.less';
 
 
 export default class PickerModalYear extends Component {
 
-	static propTypes = {
-		momentValue : PropTypes.object, 	// current picker moment object
-		min 		: PropTypes.object, 	// min date value, moment default format
-		max 		: PropTypes.object, 	// max date value, moment default format
-		yearsGap 	: PropTypes.number, 	// years gap from this year 
-		onChange 	: PropTypes.func, 		// when calendar date changed
-	};
+    static propTypes = {
+        momentValue : PropTypes.object,     // current picker moment object
+        min         : PropTypes.object,     // min date value, moment default format
+        max         : PropTypes.object,     // max date value, moment default format
+        yearsGap    : PropTypes.number,     // years gap from this year
+        onChange    : PropTypes.func        // when calendar date changed
+    };
 
-	static defaultProps = {
-		yearsGap 	: 5,
-	};
+    static defaultProps = {
+        yearsGap    : 5
+    };
 
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		// actions
-		this._onSelect = this._onSelect.bind(this);
-	}
+        // actions
+        this._onSelect = this._onSelect.bind(this);
+    }
 
-  	componentDidMount() {
-  		this.doSetScrollTop();
-  	}
+    componentDidMount() {
+        this.doSetScrollTop();
+    }
 
-  	componentDidUpdate() {
-  		this.doSetScrollTop();
-  	}
+    componentDidUpdate() {
+        this.doSetScrollTop();
+    }
 
-	render() {
-		const { yearsGap } = this.props;
+    render() {
+        const { yearsGap } = this.props;
 
-		const currentYear = parseInt(moment().format('YYYY'));
+        const currentYear = parseInt(moment().format('YYYY'));
 
-		// start loop
-		let startYear = currentYear - yearsGap;
-		const childs = [];
-		while((currentYear + yearsGap) >= startYear) {
-			childs.push( this.renderItem(startYear) );
-			startYear++;
-		}
-		
-		return (
-			<div className="PickerModalYear" ref={el => this.__el = el}>
-				{childs}
-			</div>
-		)
-	}
+        // start loop
+        let startYear = currentYear - yearsGap;
+        const childs = [];
+        while ((currentYear + yearsGap) >= startYear) {
+            childs.push( this.renderItem(startYear) );
+            startYear++;
+        }
 
-	renderItem(year) {
-		const { momentValue, min, max } = this.props;
+        return (
+            <div className='PickerModalYear' ref={el => this.__el = el}>
+                {childs}
+            </div>
+        );
+    }
 
-		const classNameArr = [];
-		// selected
-		if (year === parseInt(momentValue.format('YYYY'))) {
-			classNameArr.push('__is-select');
-		}
-		// min & max
-		if (min && parseInt(min.format('YYYY')) > year) {
-			classNameArr.push('__is-disabled');
-		}
-		else if (max && parseInt(max.format('YYYY')) < year) {
-			classNameArr.push('__is-disabled');
-		}
+    renderItem(year) {
+        const { momentValue, min, max } = this.props;
 
-		return (
-			<div key={year}
-				id={`year_${year}`}
-				className={classNames('PickerModalYear-item', classNameArr)}>
-				{classNameArr.indexOf('__is-disabled') !== -1 &&
-					<span>{year}</span>
-				}
+        const classNameArr = [];
+        // selected
+        if (year === parseInt(momentValue.format('YYYY'))) {
+            classNameArr.push('__is-select');
+        }
+        // min & max
+        if (min && parseInt(min.format('YYYY')) > year) {
+            classNameArr.push('__is-disabled');
+        }
+        else if (max && parseInt(max.format('YYYY')) < year) {
+            classNameArr.push('__is-disabled');
+        }
 
-				{classNameArr.indexOf('__is-disabled') === -1 &&
-					<a href="#"
-						data-year={year}
-						onClick={this._onSelect}>{year}</a>
-				}
-			</div>
-		)
-	}
+        return (
+            <div key={year}
+                id={`year_${year}`}
+                className={classNames('PickerModalYear-item', classNameArr)}>
+                {classNameArr.indexOf('__is-disabled') !== -1 &&
+                    <span>{year}</span>
+                }
 
-	//actions
-	_onSelect(e) {
-		e.preventDefault();
+                {classNameArr.indexOf('__is-disabled') === -1 &&
+                    <a href='#'
+                        data-year={year}
+                        onClick={this._onSelect}>{year}</a>
+                }
+            </div>
+        );
+    }
 
-		const { momentValue, min, max } = this.props;
+    // actions
+    _onSelect(e) {
+        e.preventDefault();
 
-		// new moment date
-		let newDate = moment(momentValue).year( e.currentTarget.dataset.year );
+        const { momentValue, min, max } = this.props;
 
-		// Check min & max date allowed
-		if (min && newDate.isBefore(min)) {
-			newDate = moment(min);
-		}
-		else if (max && newDate.isAfter(max)) {
-			newDate = moment(max);
-		}
+        // new moment date
+        let newDate = moment(momentValue).year( e.currentTarget.dataset.year );
 
-		if (this.props.onChange) {
-			this.props.onChange(newDate);
-		}
-	}
+        // Check min & max date allowed
+        if (min && newDate.isBefore(min)) {
+            newDate = moment(min);
+        }
+        else if (max && newDate.isAfter(max)) {
+            newDate = moment(max);
+        }
 
-	// internal
-	doSetScrollTop() {
-		const { momentValue } = this.props;
+        if (this.props.onChange) {
+            this.props.onChange(newDate);
+        }
+    }
 
-  		const selectedEl = document.getElementById( 'year_' + momentValue.format('YYYY') );
-  		this.__el.scrollTop = selectedEl.offsetTop - (this.__el.clientHeight - selectedEl.clientHeight)/2;
-	}
-} 
+    // internal
+    doSetScrollTop() {
+        const { momentValue } = this.props;
+
+        const selectedEl = document.getElementById( 'year_' + momentValue.format('YYYY') );
+        this.__el.scrollTop = selectedEl.offsetTop - (this.__el.clientHeight - selectedEl.clientHeight)/2;
+    }
+}

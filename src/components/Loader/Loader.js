@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './Loader.less';
@@ -6,43 +7,47 @@ import './Loader.less';
 
 export default class Loader extends PureComponent {
 
-	constructor(props) {
-		super(props);
+    static propTypes = {
+        text         : PropTypes.string
+    };
 
-		this.state = {
-			isShow 	: false
-		};
-	}
+    constructor(props) {
+        super(props);
 
-	componentDidMount() {
-		this.__timer = setTimeout(() => {
-			this.setState({ isShow : true });
-		}, 50);
-	}
+        this.state = {
+            isShow  : false
+        };
+    }
 
-	componentWillUnmount() {
-		clearTimeout(this.__timer);
-	}
+    componentDidMount() {
+        this.__timer = setTimeout(() => {
+            this.setState({ isShow : true });
+        }, 50);
+    }
 
-	render() {
-		const { className, text, ...others } = this.props;
-		const { isShow } = this.state;
+    componentWillUnmount() {
+        clearTimeout(this.__timer);
+    }
 
-		return (
-			<div {...others} className={classNames("Loader", className)}>
-				<div className="Loader-content">
-					<div className={classNames("Loader-spinner", { '__is-stop' : !isShow })}>
-						<i></i>
-						<i></i>
-						<i></i>
-						<i></i>
-						<i></i>
-					</div>
-					{text &&
-						<p className="loader-text">{ text }</p>
-					}
-				</div>
-			</div>
-		)
-	}
-} 
+    render() {
+        const { className, text, ...others } = this.props;
+        const { isShow } = this.state;
+
+        return (
+            <div {...others} className={classNames('Loader', className)}>
+                <div className='Loader-content'>
+                    <div className={classNames('Loader-spinner', { '__is-stop' : !isShow })}>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+                    {text &&
+                        <p className='loader-text'>{ text }</p>
+                    }
+                </div>
+            </div>
+        );
+    }
+}

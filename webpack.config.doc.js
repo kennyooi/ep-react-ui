@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
@@ -12,7 +12,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './docs/'),
         // publicPath: '/',
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     stats: {
         colors  : true,
@@ -35,7 +35,7 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [
                         'css-loader',
-                        'postcss-loader',
+                        'postcss-loader'
                     ]
                 })
             },
@@ -46,10 +46,10 @@ module.exports = {
                     use: [
                         'css-loader',
                         'postcss-loader',
-                        'less-loader' 
+                        'less-loader'
                     ]
                 })
-            },
+            }
         ]
     },
     plugins: [
@@ -60,17 +60,17 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
-            __DEV__: JSON.stringify('false'),
+            __DEV__: JSON.stringify('false')
         }),
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
         // new webpack.optimize.UglifyJsPlugin(),
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
-        // base HTML 
+        // base HTML
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './index.html'
         })
     ],
     externals: {
 
-    },
+    }
 };

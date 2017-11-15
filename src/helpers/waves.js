@@ -3,7 +3,7 @@
  * @refs -> https://github.com/Dogfalo/materialize/blob/master/js/waves.js
  */
 
-import { map } from 'lodash'
+import { map } from 'lodash-es';
 
 // Find exact position of element
 export function isWindow(obj) {
@@ -15,9 +15,9 @@ export function getWindow(el) {
 }
 
 export function offset(el) {
-	let docElem, win,
-   		box = {top: 0, left: 0},
-    	doc = el && el.ownerDocument;
+    let docElem, win,
+        box = {top: 0, left: 0},
+        doc = el && el.ownerDocument;
 
     docElem = doc.documentElement;
 
@@ -39,4 +39,4 @@ export function convertStyle(obj) {
     });
 
     return style;
-}   
+}

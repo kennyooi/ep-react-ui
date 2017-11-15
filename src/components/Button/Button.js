@@ -2,8 +2,8 @@
  * Normal Button (using ButtonCore)
  */
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ButtonCore from './ButtonCore';
 
 import './style.less';
@@ -12,23 +12,31 @@ import './Button.less';
 
 export default class Button extends Component {
 
-	static defaultProps = {
-		className 	: '',
-		theme 		: 'default',
-	};
+    static propTypes = {
+        theme       : PropTypes.string,
+        children    : PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.node
+        ])
+    };
 
-	render() {
-		const { children, className, theme, ...others } = this.props;
+    static defaultProps = {
+        className   : '',
+        theme       : 'default'
+    };
 
-		return (
-			<ButtonCore 
-				{...others}
-				className={classNames('btn', className)}
-				theme={theme}
-				rippleTheme={theme === "default" ? "default" : "light"}
-			>
-				{children}
-			</ButtonCore>
-		)
-	}
-} 
+    render() {
+        const { children, className, theme, ...others } = this.props;
+
+        return (
+            <ButtonCore
+                {...others}
+                className={classNames('btn', className)}
+                theme={theme}
+                rippleTheme={theme === 'default' ? 'default' : 'light'}
+            >
+                {children}
+            </ButtonCore>
+        );
+    }
+}

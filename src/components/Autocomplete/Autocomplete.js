@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { isEmpty, map, findIndex } from 'lodash';
+import { isEmpty } from 'lodash-es';
 import ListItem from '../ListItem/ListItemCore';
 import InputField from '../Form/InputField';
 
@@ -15,20 +15,23 @@ export default class Autocomplete extends PureComponent {
 
     static propTypes = {
         value       : PropTypes.string,     // input value
-        wrapperClassName : PropTypes.string, 	// wrapper className
+        wrapperClassName : PropTypes.string,    // wrapper className
         className   : PropTypes.string,     // input className
         delay       : PropTypes.number,     // pause delay
         loadItems   : PropTypes.func,       // async load items, must return a promise: func(val)
         onRender    : PropTypes.func,       // method to render
         onSelect    : PropTypes.func,       // autocomplete selected
-        debugMode   : PropTypes.bool,       // enable debug mode
+        onChange    : PropTypes.func,       // autocomplete selected
+        onBlur      : PropTypes.func,       // autocomplete selected
+        onFocus     : PropTypes.func,       // autocomplete selected
+        debugMode   : PropTypes.bool        // enable debug mode
     };
 
     static defaultProps = {
         value       : '',
         delay       : 500,
         onRender    : item => item.name,
-        debugMode   : false,
+        debugMode   : false
     };
 
     constructor(props) {
@@ -38,8 +41,8 @@ export default class Autocomplete extends PureComponent {
             input       : props.value,
             selectedIndex : -1,
             items       : [],
-            isLoading 	: false,
-            isShow      : false,
+            isLoading   : false,
+            isShow      : false
         };
 
         // actions
@@ -59,7 +62,7 @@ export default class Autocomplete extends PureComponent {
     componentWillUnmount() {
         // kindly destroy all events
         this.unbindKeyboardEvent();
-        
+
         clearTimeout(this.__searchTimer);
         clearTimeout(this.__onBlurTimer);
     }
@@ -69,27 +72,27 @@ export default class Autocomplete extends PureComponent {
         const { input } = this.state;
 
         return (
-            <div className={classNames("Autocomplete", wrapperClassName)}>
-            	<InputField 
-            		{...other}
-            		className={classNames('Autocomplete-input', className)}
-            		value={input}
-            		onChange={this._onChange}
-            		onFocus={this._onFocus}
-            		onBlur={this._onBlur}
-            	/>
+            <div className={classNames('Autocomplete', wrapperClassName)}>
+                <InputField
+                    {...other}
+                    className={classNames('Autocomplete-input', className)}
+                    value={input}
+                    onChange={this._onChange}
+                    onFocus={this._onFocus}
+                    onBlur={this._onBlur}
+                />
 
                 {this.renderDropdown()}
             </div>
-        )
+        );
     }
 
     renderDropdown() {
-        const { isShow, isLoading, items } = this.state;
+        const { isShow, items } = this.state;
 
         // not focus
         if (!isShow) {
-        	return;
+            return;
         }
 
         if (isEmpty(items)) {
@@ -100,7 +103,7 @@ export default class Autocomplete extends PureComponent {
             <div className="Autocomplete-list">
                 {items.map(this.renderDropdownItem.bind(this))}
             </div>
-        )
+        );
     }
 
     renderDropdownItem(item, index) {
@@ -109,15 +112,15 @@ export default class Autocomplete extends PureComponent {
         return (
             <ListItem
                 key={index}
-                TagName="li"
-                className={classNames("Autocomplete-item", {
-                    "__is-active" : index === selectedIndex
+                TagName='li'
+                className={classNames('Autocomplete-item', {
+                    '__is-active' : index === selectedIndex
                 })}
                 onClick={this._onSelect.bind(this, item)}
             >
                 {this.props.onRender( item )}
             </ListItem>
-        )
+        );
     }
 
 
@@ -126,12 +129,12 @@ export default class Autocomplete extends PureComponent {
      */
     bindKeyboardEvent() {
         // bind key event
-        window.addEventListener("keydown", this._onKeyboardPress);
+        window.addEventListener('keydown', this._onKeyboardPress);
     }
 
     unbindKeyboardEvent() {
         // unbind key event
-        window.removeEventListener("keydown", this._onKeyboardPress);
+        window.removeEventListener('keydown', this._onKeyboardPress);
     }
 
     doSearch(val) {
@@ -150,10 +153,9 @@ export default class Autocomplete extends PureComponent {
             loadItems( val )
                 .then(results => this.setState({ isLoading: false, items: results || [] }))
                 .catch(err => {
-                    console.log(err);
-                    this.setState({ isLoading: false, items: [] })
-                })
-        }, delay)
+                    this.setState({ isLoading: false, items: [] });
+                });
+        }, delay);
     }
 
 
@@ -168,7 +170,7 @@ export default class Autocomplete extends PureComponent {
             isShow  : val.length ? true : false,
             items   : [],
             isLoading : true,
-            selectedIndex: -1,
+            selectedIndex: -1
         });
 
         this.doSearch( val );
@@ -200,7 +202,7 @@ export default class Autocomplete extends PureComponent {
         this.__onBlurTimer = setTimeout(() => {
             this.setState({
                 isShow  : false,
-                items   : [],
+                items   : []
             });
         }, 200);
 
@@ -217,8 +219,8 @@ export default class Autocomplete extends PureComponent {
         this.setState({
             input   : item.name,
             isShow  : false,
-            items   : [],
-        })
+            items   : []
+        });
 
         // trigger prop onSelect
         if (this.props.onSelect) {
@@ -247,7 +249,7 @@ export default class Autocomplete extends PureComponent {
         }
         // key - esc
         else if (e.which === 27) {
-            this.setState({ selectedIndex: -1, items: [], isShow: false, isLoading: false })
+            this.setState({ selectedIndex: -1, items: [], isShow: false, isLoading: false });
         }
     }
 }
