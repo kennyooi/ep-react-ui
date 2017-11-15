@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { times, map, padStart } from 'lodash-es';
+import { times, map, padStart } from 'lodash';
 
 import './PickerModalTime.less';
 

@@ -9,7 +9,6 @@ module.exports = {
     entry: './app.js',
     output: {
         path: path.resolve(__dirname, './docs/'),
-        // publicPath: '/',
         filename: 'bundle.js'
     },
     stats: {

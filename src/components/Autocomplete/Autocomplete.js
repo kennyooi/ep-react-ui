@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { isEmpty } from 'lodash-es';
+import { isEmpty } from 'lodash';
 import ListItem from '../ListItem/ListItemCore';
 import InputField from '../Form/InputField';
 

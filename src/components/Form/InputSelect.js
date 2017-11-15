@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { omitBy, isNull } from 'lodash-es';
+import { omitBy, isNull } from 'lodash';
 
 import './InputSelect.less';
 

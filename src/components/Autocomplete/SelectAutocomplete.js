@@ -2,7 +2,7 @@
  * Select Automcomplete component (extends Autocomplete)
  */
 import React from 'react';
-import { isEmpty } from 'lodash-es';
+import { isEmpty } from 'lodash';
 import Autocomplete from './Autocomplete';
 
 

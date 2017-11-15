@@ -13,6 +13,12 @@
   	],
   	"env": {
 		"node": {
+      "presets": [
+        ["env", { 
+          "targets": { "node": "current" } 
+        }],
+        "react"
+      ],
 			"ignore": ["**/*.less", '__tests__'],
 			"plugins": [
 				[ "babel-plugin-transform-require-ignore", { "extensions": [".less"] } ]

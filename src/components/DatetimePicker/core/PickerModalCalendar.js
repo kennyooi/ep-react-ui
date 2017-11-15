@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import moment from 'moment';
-import { times, uniqueId } from 'lodash-es';
+import { times, uniqueId } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './PickerModalCalendar.less';

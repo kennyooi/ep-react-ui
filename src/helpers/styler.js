@@ -1,4 +1,4 @@
-import { pull, filter, uniq } from 'lodash-es';
+import { pull, filter, uniq } from 'lodash';
 
 /**
  * Add new CSS class to element

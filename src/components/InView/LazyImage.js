@@ -4,7 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { assign } from 'lodash-es';
+import { assign } from 'lodash';
 import InView from './InView';
 
 import './LazyImage.less';

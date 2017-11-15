@@ -3,7 +3,7 @@
  * @refs -> https://github.com/Dogfalo/materialize/blob/master/js/waves.js
  */
 
-import { map } from 'lodash-es';
+import { map } from 'lodash';
 
 // Find exact position of element
 export function isWindow(obj) {

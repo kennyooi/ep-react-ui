@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { render } from 'react-dom';
-import { map, assign, remove, uniqueId } from 'lodash-es';
+import { map, assign, remove, uniqueId } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './Notification.less';
