@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
@@ -63,8 +64,9 @@ module.exports = {
             __DEV__: JSON.stringify('false')
         }),
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
-        // new webpack.optimize.UglifyJsPlugin(),
-        // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
+        new webpack.optimize.UglifyJsPlugin(),
+        new LodashModuleReplacementPlugin(),
+        // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
         // base HTML
         new HtmlWebpackPlugin({
             template: './index.html'
