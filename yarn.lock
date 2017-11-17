@@ -965,7 +965,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^3.4.7:
+bluebird@^3.4.7, bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1869,6 +1869,20 @@ enhanced-resolve@^3.4.0:
 entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+ep-react-ui@^0.1.14:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/ep-react-ui/-/ep-react-ui-0.1.14.tgz#22aeae887cd60f0a3bc0b5927173936e2a89a4a2"
+  dependencies:
+    classnames "^2.2.5"
+    in-view "^0.6.1"
+    lodash "^4.17.4"
+    moment "^2.18.1"
+    prop-types "^15.6.0"
+    react "^15.6.1"
+    react-addons-css-transition-group "^15.6.0"
+    react-dom "^15.6.1"
+    react-tooltip "^3.4.0"
 
 errno@^0.1.1, errno@^0.1.3:
   version "0.1.4"
