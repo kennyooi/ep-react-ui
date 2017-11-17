@@ -32,6 +32,7 @@ export default class MessageModal extends Component {
     }
 
     render() {
+        /* eslint-disable no-unused-vars */
         const { className, type, icon, onClose, disableClose, ...others } = this.props;
 
         return (

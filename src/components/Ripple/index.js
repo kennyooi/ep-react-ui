@@ -68,9 +68,10 @@ export default class RippleEffect extends Component {
         ripple.className += ' ripple-effect__init';
         ripple.setAttribute('style', convertStyle(styles));
 
+        /* eslint-disable no-unused-expressions */
         // @hack - refresh style changes
         // ref -> https://timtaubert.de/blog/2012/09/css-transitions-for-dynamically-created-dom-elements/
-        window.getComputedStyle(ripple);
+        window.getComputedStyle(ripple).opacity;
 
         // Scale ripple
         ripple.className = ripple.className.replace('ripple-effect__init', 'ripple-effect__in');

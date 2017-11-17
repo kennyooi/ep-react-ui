@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { offset } from '../../helpers/waves';
 import Ripple from '../Ripple';
 
+import './style.less';
 
 export default class ListItemCore extends Component {
 

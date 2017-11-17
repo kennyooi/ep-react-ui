@@ -12,7 +12,7 @@ export default class DocMessageModal extends Component {
 
         };
     }
-    
+
     render() {
         return (
             <div className="DocMessageModal">

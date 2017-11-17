@@ -68,6 +68,7 @@ export default class Autocomplete extends PureComponent {
     }
 
     render() {
+        /* eslint-disable no-unused-vars */
         const { className, wrapperClassName, value, delay, loadItems, onRender, onSelect, debugMode, ...other } = this.props;
         const { input } = this.state;
 

@@ -42,6 +42,7 @@ export default class ConfirmModal extends PureComponent {
     }
 
     render() {
+        /* eslint-disable no-unused-vars */
         const { className, isSecure, textCancel, textConfirm, textDelete, onConfirm, onRequestClose, ...others } = this.props;
 
         return (

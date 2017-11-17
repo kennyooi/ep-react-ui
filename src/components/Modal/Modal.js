@@ -66,6 +66,7 @@ export default class Modal extends PureComponent {
 
     // Internal methods
     renderModal(el) {
+        /* eslint-disable no-unused-vars */
         const { children, className, onRequestClose, name, isShow, closeDelay, onOpen, onClose, bodyClassName, ...other } = this.props;
 
         render((
@@ -110,8 +111,9 @@ export default class Modal extends PureComponent {
         // Render modal layout
         this.renderModal( this.__el );
 
+        /* eslint-disable no-unused-expressions */
         // @hack - refresh CSS cache
-        window.getComputedStyle(this.__el);
+        window.getComputedStyle(this.__el).opacity;
 
         // Show modal
         addClass(this.__el, ['is__open']);
