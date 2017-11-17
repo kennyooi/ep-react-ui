@@ -65,7 +65,10 @@ module.exports = {
         }),
         new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true }),
         new webpack.optimize.UglifyJsPlugin(),
-        new LodashModuleReplacementPlugin(),
+        new LodashModuleReplacementPlugin({
+            'collections': true,
+            'paths': true
+        }),
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
         // base HTML
         new HtmlWebpackPlugin({

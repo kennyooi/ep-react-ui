@@ -65,7 +65,10 @@ module.exports = {
         new ExtractTextPlugin({ filename: 'app.css', allChunks: true }),
         new webpack.optimize.UglifyJsPlugin(),
         // Optimizer lodash
-        new LodashModuleReplacementPlugin()
+        new LodashModuleReplacementPlugin({
+            'collections': true,
+            'paths': true
+        })
         // Analyzer
         // new BundleAnalyzerPlugin({ analyzerMode: 'static' })
     ],
