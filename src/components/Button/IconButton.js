@@ -77,7 +77,7 @@ export default class IconButton extends PureComponent {
             inner_props = {
                 'data-tip' : tooltip ? true : undefined,
                 'data-for' : this.__uniqId,
-                'data-offset': '{ top: -16 }'
+                'data-offset': '{ \'top\': -16 }'
             };
 
             childs.push((
