@@ -68,7 +68,7 @@ export default class GeoAutocomplete extends Component {
                     }
                     // error -> reject
                     else {
-                        reject();
+                        reject(new Error('No result.'));
                     }
                 }
             );
@@ -90,7 +90,7 @@ export default class GeoAutocomplete extends Component {
                 }
                 // error -> reject
                 else {
-                    reject();
+                    reject(new Error('Place not found.'));
                 }
             });
         });
