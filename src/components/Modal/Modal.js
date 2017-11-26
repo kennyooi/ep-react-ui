@@ -63,15 +63,19 @@ export default class Modal extends PureComponent {
     }
 
     render() {
-        /* eslint-disable no-unused-vars */
-        const { children, className, onRequestClose, name, isShow, closeDelay, onOpen, onClose, bodyClassName, ...other } = this.props;
-        const { isModalOpen, isFaded } = this.state;
-
-        if (!isModalOpen) {
+        if (!this.state.isModalOpen) {
             return null;
         }
 
-        return createPortal((
+        return createPortal(this.renderModal(), this.__root);
+    }
+
+    renderModal() {
+        /* eslint-disable no-unused-vars */
+        const { children, className, onRequestClose, name, isShow, closeDelay, onOpen, onClose, bodyClassName, ...other } = this.props;
+        const { isFaded } = this.state;
+
+        return (
             <div
                 ref={el => this.__el = el}
                 className={classNames(name, {
@@ -92,7 +96,7 @@ export default class Modal extends PureComponent {
                     </div>
                 </div>
             </div>
-        ), this.__root);
+        );
     }
 
     modalOpened() {
