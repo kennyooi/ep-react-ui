@@ -4,8 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Promise from 'bluebird';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { createPortal } from 'react-dom';
 import { addClass, removeClass } from '../../helpers/styler';
 
 import './Modal.less';
@@ -31,129 +30,104 @@ export default class Modal extends PureComponent {
         onRequestClose  : () => {}
     };
 
-    componentWillUnmount() {
-        clearTimeout( this.__closeTimer );
-        if (this.__el) {
-            unmountComponentAtNode( this.__el );
-            document.body.removeChild( this.__el );
-            removeClass(document.body, this.props.bodyClassName);
-            this.__el = null;
-        }
+    constructor(props) {
+        super(props);
+
+        this.__timer = null;
+
+        this.state = {
+            isModalOpen : false,
+            isFaded     : false
+        };
     }
 
-    componentDidUpdate() {
-        // Re-render modal
-        if (this.__el && this.props.isShow) {
-            this.renderModal( this.__el );
+    componentDidMount() {
+        this.__root = document.body;
+    }
+
+    componentWillUnmount() {
+        // clear all
+        clearTimeout(this.__timer);
+        removeClass(this.__root, this.props.bodyClassName);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { isModalOpen } = this.state;
+
+        if (nextProps.isShow && !isModalOpen) {
+            this.modalOpened();
         }
-        // New modal
-        else if (!this.__el && this.props.isShow) {
-            this.createModal();
-        }
-        // Close modal
-        else if (this.__el && !this.props.isShow) {
-            this.closeModal();
-        }
-        else {
-            // Do nothing
+        else if (!nextProps.isShow && isModalOpen) {
+            this.modalClosed();
         }
     }
 
     render() {
-        // Render nothing
-        return null;
-    }
-
-
-    // Internal methods
-    renderModal(el) {
         /* eslint-disable no-unused-vars */
         const { children, className, onRequestClose, name, isShow, closeDelay, onOpen, onClose, bodyClassName, ...other } = this.props;
+        const { isModalOpen, isFaded } = this.state;
 
-        render((
-            <div className='Modal-inner'>
-                <div
-                    className='Modal-overlay'
-                    onClick={onRequestClose}
-                ></div>
-                <div
-                    {...other}
-                    className={classNames('Modal-content', className)}
-                >
-                    {children}
+        if (!isModalOpen) {
+            return null;
+        }
+
+        return createPortal((
+            <div
+                ref={el => this.__el = el}
+                className={classNames(name, {
+                    'is__open': isFaded
+                })}
+            >
+                <div className='Modal-inner'>
+                    <div
+                        className='Modal-overlay'
+                        onClick={onRequestClose}
+                    ></div>
+                    <div
+                        {...other}
+                        ref={el => this.__contentEl = el}
+                        className={classNames('Modal-content', className)}
+                    >
+                        {children}
+                    </div>
                 </div>
             </div>
-        ), el);
-
-        // Position modal layout
-        const contentNode = this.__el.childNodes[0].childNodes[1];
-        const y = (el.clientHeight - contentNode.clientHeight) / 2;
-        const x = (el.clientWidth - contentNode.clientWidth) / 2;
-        contentNode.style.top = `${Math.max(0, y)}px`;
-        contentNode.style.left = `${Math.max(0, x)}px`;
+        ), this.__root);
     }
 
-    // open modal
-    createModal() {
-        // Check isOpened
-        if (this.__el) {
-            return;
-        }
+    modalOpened() {
+        this.setState({ isModalOpen: true });
 
-        // Create new DOM
-        this.__el = document.createElement('div');
-        this.__el.id = this.props.name;
-        this.__el.className = classNames(this.props.name);
-        document.body.appendChild( this.__el );
+        // update body className
+        addClass(this.__root, this.props.bodyClassName);
 
-        // Ammend body
-        addClass(document.body, this.props.bodyClassName);
+        this.__timer = setTimeout(() => {
+            // position modal content
+            const y = (this.__el.clientHeight - this.__contentEl.clientHeight) / 2;
+            const x = (this.__el.clientWidth - this.__contentEl.clientWidth) / 2;
+            this.__contentEl.style.top = `${Math.max(0, y)}px`;
+            this.__contentEl.style.left = `${Math.max(0, x)}px`;
 
-        // Render modal layout
-        this.renderModal( this.__el );
+            this.setState({ isFaded: true });
 
-        this.refreshStyle( this.__el )
-            .then(() => {
-                // Show modal
-                addClass(this.__el, ['is__open']);
-
-                if (this.props.onOpen) {
-                    this.props.onOpen();
-                }
-            });
-    }
-
-    closeModal() {
-        const { closeDelay } = this.props;
-
-        // Check isclosed
-        if (!this.__el) {
-            return;
-        }
-
-        // Close modal
-        removeClass(this.__el, 'is__open');
-
-        this.__closeTimer = setTimeout(() => {
-            if (this.__el) {
-                unmountComponentAtNode( this.__el );
-                document.body.removeChild( this.__el );
-                removeClass(document.body, this.props.bodyClassName);
-                this.__el = null;
-
-                if (this.props.onClose) {
-                    this.props.onClose();
-                }
+            if (this.props.onOpen) {
+                this.props.onOpen();
             }
-        }, closeDelay);
+        }, 100);
     }
 
-    refreshStyle(el) {
-        return new Promise((resolve) => {
-            /* eslint-disable no-unused-expressions */
-            // @hack - refresh CSS cache
-            window.getComputedStyle(el).opacity;
-            resolve();
-        });
+    modalClosed() {
+        this.setState({ isFaded: false });
+
+        // update body className
+        removeClass(this.__root, this.props.bodyClassName);
+
+        this.__timer = setTimeout(() => {
+            this.setState({ isModalOpen: false });
+
+            if (this.props.onClose) {
+                this.props.onClose();
+            }
+        }, this.props.closeDelay);
     }
 }
