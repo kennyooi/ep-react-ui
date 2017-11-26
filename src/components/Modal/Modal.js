@@ -4,6 +4,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Promise from 'bluebird';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { addClass, removeClass } from '../../helpers/styler';
 
@@ -111,14 +112,15 @@ export default class Modal extends PureComponent {
         // Render modal layout
         this.renderModal( this.__el );
 
-        this.refreshStyle( this.__el );
+        this.refreshStyle( this.__el )
+            .then(() => {
+                // Show modal
+                addClass(this.__el, ['is__open']);
 
-        // Show modal
-        addClass(this.__el, ['is__open']);
-
-        if (this.props.onOpen) {
-            this.props.onOpen();
-        }
+                if (this.props.onOpen) {
+                    this.props.onOpen();
+                }
+            });
     }
 
     closeModal() {
@@ -147,8 +149,11 @@ export default class Modal extends PureComponent {
     }
 
     refreshStyle(el) {
-        /* eslint-disable no-unused-expressions */
-        // @hack - refresh CSS cache
-        return window.getComputedStyle(el).opacity;
+        return new Promise((resolve) => {
+            /* eslint-disable no-unused-expressions */
+            // @hack - refresh CSS cache
+            window.getComputedStyle(el).opacity;
+            resolve();
+        });
     }
 }
