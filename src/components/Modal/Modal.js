@@ -111,9 +111,7 @@ export default class Modal extends PureComponent {
         // Render modal layout
         this.renderModal( this.__el );
 
-        /* eslint-disable no-unused-expressions */
-        // @hack - refresh CSS cache
-        window.getComputedStyle(this.__el).opacity;
+        this.refreshStyle( this.__el );
 
         // Show modal
         addClass(this.__el, ['is__open']);
@@ -146,5 +144,11 @@ export default class Modal extends PureComponent {
                 }
             }
         }, closeDelay);
+    }
+
+    refreshStyle(el) {
+        /* eslint-disable no-unused-expressions */
+        // @hack - refresh CSS cache
+        return window.getComputedStyle(el).opacity;
     }
 }
