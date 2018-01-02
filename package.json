@@ -1,6 +1,6 @@
 {
   "name": "ep-react-ui",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "EP react UI elements.",
   "main": "build/index.js",
   "scripts": {

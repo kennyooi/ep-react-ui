@@ -81,7 +81,7 @@ export default class Notification extends PureComponent {
                             [iconSuccess] : item.type === 'success',
                             [iconInfo]    : item.type === 'info'
                         })}></i>
-                        <p>{item.message}</p>
+                        <p dangerouslySetInnerHTML={{__html: item.message}}></p>
                     </div>
                 )}
             </ReactCSSTransitionGroup>

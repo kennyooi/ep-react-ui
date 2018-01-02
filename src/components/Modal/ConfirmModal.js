@@ -84,7 +84,7 @@ export default class ConfirmModal extends PureComponent {
                         theme='red'
                         onClick={this._onConfirm}
                     >
-                        {textConfirm}
+                        <b>{textConfirm}</b>
                     </FlatButton>
                 </div>
             </div>
