@@ -19,6 +19,7 @@ import './DatetimePicker.less';
 export default class DatetimePicker extends PureComponent {
 
     static propTypes = {
+        name            : PropTypes.string,     // input name, will be return in second params
         value           : PropTypes.string,     // input value, moment default format
         type            : PropTypes.string,     // datePicker type, ['date', 'datetime', 'time']
         min             : PropTypes.object,     // min date value, moment default format
@@ -184,11 +185,11 @@ export default class DatetimePicker extends PureComponent {
     }
 
     _onConfirm() {
-        const { format } = this.props;
+        const { format, name } = this.props;
         const { selectedDate } = this.state;
 
         if (this.props.onChange) {
-            this.props.onChange( selectedDate.format(format) );
+            this.props.onChange( selectedDate.format(format), name );
         }
 
         this._onCloseModal();
