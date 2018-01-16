@@ -43,6 +43,9 @@ export default class DocButton extends Component {
                     <Button disabled={true}>
                         Disabled
                     </Button>
+                    <Button theme='orange' disabled={true}>
+                        Disabled
+                    </Button>
                 </div>
 
                 <p><code>size</code> prop</p>
