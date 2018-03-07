@@ -9,6 +9,33 @@ import FlatButton from '../Button/FlatButton';
 
 import './ConfirmModal.less';
 
+/* eslint-disable react/prop-types */
+const SecureInput = ({ isError, textDelete, input, onChange }) => (
+    <div className='form-group'>
+        <input
+            type='text'
+            className={classNames('input input-secure', {
+                'input__error' : isError
+            })}
+            placeholder={`Enter '${textDelete}'`}
+            value={input}
+            autoFocus={true}
+            onChange={onChange}
+        />
+        <div className='input-tips'>Enter &quot;{textDelete}&quot; to continue.</div>
+    </div>
+);
+
+const Content = ({ children, isSecure, ...others }) => (
+    <div className='Modal-body'>
+        {children}
+
+        {isSecure &&
+            <SecureInput {...others} />
+        }
+    </div>
+);
+/* eslint-enable react/prop-types */
 
 export default class ConfirmModal extends PureComponent {
 
@@ -41,9 +68,17 @@ export default class ConfirmModal extends PureComponent {
         this._onConfirm = this._onConfirm.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        // reset input when modal is opened
+        if (nextProps.isShow && !this.props.isShow) {
+            this.setState({ input: '', isError: false });
+        }
+    }
+
     render() {
         /* eslint-disable no-unused-vars */
-        const { className, isSecure, textCancel, textConfirm, textDelete, onConfirm, onRequestClose, ...others } = this.props;
+        const { children, className, isSecure, textCancel, textConfirm, textDelete, onConfirm, onRequestClose, ...others } = this.props;
+        const { input, isError } = this.state;
 
         return (
             <Modal
@@ -54,65 +89,33 @@ export default class ConfirmModal extends PureComponent {
                 className={classNames('ConfirmModal', className)}
                 onRequestClose={onRequestClose}
             >
-                {this.renderModalContent()}
+                <div className='ConfirmModal-content'>
+                    <Content
+                        textDelete={textDelete}
+                        isSecure={isSecure}
+                        isError={isError}
+                        input={input}
+                        onChange={this._onChange}
+                    >
+                        {children}
+                    </Content>
+
+                    <div className='Modal-footer'>
+                        <FlatButton
+                            theme='default'
+                            onClick={onRequestClose}
+                        >
+                            {textCancel}
+                        </FlatButton>
+                        <FlatButton
+                            theme='red'
+                            onClick={this._onConfirm}
+                        >
+                            <b>{textConfirm}</b>
+                        </FlatButton>
+                    </div>
+                </div>
             </Modal>
-        );
-    }
-
-    renderModalContent() {
-        const { children, isShow, onRequestClose, textCancel, textConfirm } = this.props;
-
-        if (!isShow) {
-            return null;
-        }
-
-        return (
-            <div className='ConfirmModal-content'>
-                <div className='Modal-body'>
-                    {children}
-
-                    {this.renderSecureInput()}
-                </div>
-                <div className='Modal-footer'>
-                    <FlatButton
-                        theme='default'
-                        onClick={onRequestClose}
-                    >
-                        {textCancel}
-                    </FlatButton>
-                    <FlatButton
-                        theme='red'
-                        onClick={this._onConfirm}
-                    >
-                        <b>{textConfirm}</b>
-                    </FlatButton>
-                </div>
-            </div>
-        );
-    }
-
-    renderSecureInput() {
-        const { isSecure, textDelete } = this.props;
-        const { input, isError } = this.state;
-
-        if (!isSecure) {
-            return;
-        }
-
-        return (
-            <div className='form-group'>
-                <input
-                    type='text'
-                    className={classNames('input input-secure', {
-                        'input__error' : isError
-                    })}
-                    placeholder={`Enter '${textDelete}'`}
-                    value={input}
-                    autoFocus={true}
-                    onChange={this._onChange}
-                />
-                <div className='input-tips'>Enter &quot;{textDelete}&quot; to continue.</div>
-            </div>
         );
     }
 
@@ -124,8 +127,10 @@ export default class ConfirmModal extends PureComponent {
     }
 
     _onConfirm() {
-        if (this.props.isSecure &&
-                this.state.input !== this.props.textDelete) {
+        const { isSecure, textDelete } = this.props;
+        const { input } = this.state;
+
+        if (isSecure && input !== textDelete) {
             this.setState({
                 isError : true
             });

@@ -9,6 +9,26 @@ import Modal from './Modal';
 import './MessageModal.less';
 
 
+const Content = ({ children, type, icon }) => (
+    <div className='MessageModal-content'>
+        <div className={classNames('Modal-cover', {
+            [`__${type}`] : type
+        })}>
+            {icon &&
+                <i className={classNames('Modal-cover-icon', icon)}></i>
+            }
+        </div>
+        <div className='Modal-body'>
+            {children}
+        </div>
+    </div>
+);
+
+Content.propTypes = {
+    type    : PropTypes.string,
+    icon    : PropTypes.string
+};
+
 export default class MessageModal extends Component {
 
     static propTypes = {
@@ -33,7 +53,7 @@ export default class MessageModal extends Component {
 
     render() {
         /* eslint-disable no-unused-vars */
-        const { className, type, icon, onClose, disableClose, ...others } = this.props;
+        const { children, className, type, icon, onClose, disableClose, ...others } = this.props;
 
         return (
             <Modal
@@ -44,31 +64,13 @@ export default class MessageModal extends Component {
                 className={classNames('MessageModal', className)}
                 onRequestClose={this._onClose}
             >
-                {this.renderModalContent()}
-            </Modal>
-        );
-    }
-
-    renderModalContent() {
-        const { children, isShow, type, icon } = this.props;
-
-        if (!isShow) {
-            return null;
-        }
-
-        return (
-            <div className='MessageModal-content'>
-                <div className={classNames('Modal-cover', {
-                    [`__${type}`] : type
-                })}>
-                    {icon &&
-                        <i className={classNames('Modal-cover-icon', icon)}></i>
-                    }
-                </div>
-                <div className='Modal-body'>
+                <Content
+                    type={type}
+                    icon={icon}
+                >
                     {children}
-                </div>
-            </div>
+                </Content>
+            </Modal>
         );
     }
 

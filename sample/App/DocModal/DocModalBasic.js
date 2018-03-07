@@ -24,12 +24,12 @@ export default class DocModal extends Component {
                 })}
 
                 {this.generateModal('modal2a', {
-                    className: '__is-scrollable',
+                    className: '__sm',
                     onRequestClose: () => this.setState({ modal2a: false })
                 })}
 
                 {this.generateModal('modal2b', {
-                    className: '__sm',
+                    className: '__xs',
                     onRequestClose: () => this.setState({ modal2b: false })
                 })}
 
@@ -39,6 +39,11 @@ export default class DocModal extends Component {
                 })}
 
                 {this.generateModal('modal3', {
+                    className: '__is-scrollable',
+                    onRequestClose: () => this.setState({ modal3: false })
+                })}
+
+                {this.generateModal('modal4', {
                     style: { width: '400px' },
                     bodyClassName: 'modal3__opened',
                     onOpen: () => alert('Modal is opened!'),
@@ -60,17 +65,17 @@ export default class DocModal extends Component {
                     </Button>
                 </div>
 
-                <p>Modal with different preset className: <code>__is-scrollable</code>, <code>__sm</code>, <code>_lg</code>.</p>
+                <p>Modal with different preset className: <code>__sm</code>, <code>__xs</code>, <code>__lg</code>.</p>
                 <div className="group">
                     <div className="grid-12 grid-p-sm-15">
                         <div className="c-sm-4">
-                            <Button theme="blue" onClick={() => this.setState({ modal2a: true })}>
-                                Show Scrollable Modal
+                            <Button theme="green" onClick={() => this.setState({ modal2a: true })}>
+                                Show SM Modal
                             </Button>
                         </div>
                         <div className="c-sm-4">
-                            <Button theme="green" onClick={() => this.setState({ modal2b: true })}>
-                                Show SM Modal
+                            <Button theme="blue" onClick={() => this.setState({ modal2b: true })}>
+                                Show XS Modal
                             </Button>
                         </div>
                         <div className="c-sm-4">
@@ -81,11 +86,26 @@ export default class DocModal extends Component {
                     </div>
                 </div>
 
+                <p>Scrollable Modal. Preset className: <code>__is-scrollable</code>.</p>
+                <div className="group">
+                    <div className="grid-12 grid-p-sm-15">
+                        <div className="c-sm-4">
+                            <Button theme="grey" onClick={() => this.setState({ modal3: true })}>
+                                Show Scrollable Modal
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+
                 <p>Modal combined multiple props.</p>
                 <div className="group">
-                    <Button theme="ember" onClick={() => this.setState({ modal3: true })}>
-                        Show Modal
-                    </Button>
+                    <div className="grid-12 grid-p-sm-15">
+                        <div className="c-sm-4">
+                            <Button theme="ember" onClick={() => this.setState({ modal4: true })}>
+                                Show Modal
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

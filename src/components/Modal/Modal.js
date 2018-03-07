@@ -82,17 +82,19 @@ export default class Modal extends PureComponent {
                     'is__open': isFaded
                 })}
             >
+                <div
+                    className='Modal-overlay'
+                    onClick={onRequestClose}
+                ></div>
                 <div className='Modal-inner'>
-                    <div
-                        className='Modal-overlay'
-                        onClick={onRequestClose}
-                    ></div>
-                    <div
-                        {...other}
-                        ref={el => this.__contentEl = el}
-                        className={classNames('Modal-content', className)}
-                    >
-                        {children}
+                    <div className='Modal-wrapper'>
+                        <div
+                            {...other}
+                            ref={el => this.__contentEl = el}
+                            className={classNames('Modal-content', className)}
+                        >
+                            {children}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -106,11 +108,6 @@ export default class Modal extends PureComponent {
         addClass(this.__root, this.props.bodyClassName);
 
         this.__timer = setTimeout(() => {
-            // position modal content
-            const y = (this.__el.clientHeight - this.__contentEl.clientHeight) / 2;
-            const x = (this.__el.clientWidth - this.__contentEl.clientWidth) / 2;
-            this.__contentEl.style.top = `${Math.max(0, y)}px`;
-            this.__contentEl.style.left = `${Math.max(0, x)}px`;
 
             this.setState({ isFaded: true });
 
