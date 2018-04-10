@@ -1,0 +1,17 @@
+@import "../../less/variables";
+
+.ControlItem{
+    display: inline-block;
+    color: @grey700;
+    cursor: pointer;
+    font-size: .8em;
+    padding: 2px;
+    margin: 0 5px;
+    transition: color .3s;
+    &:hover{
+        color: @orange300;
+    }
+    &.__active{
+        color: @orange500;
+    }
+}

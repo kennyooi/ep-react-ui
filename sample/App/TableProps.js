@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 // styles
@@ -8,21 +9,26 @@ import './TableProps.less';
 export default class TableProps extends Component {
 
     static propTypes = {
-        dataset     : PropTypes.array
+        name    : PropTypes.string,
+        dataset : PropTypes.array
+    };
+
+    static defaultProps = {
+        name    : 'Properties'
     };
 
     render() {
-        const { dataset } = this.props;
+        const { className, name, dataset } = this.props;
 
         return (
-            <div className="TableProps">
-                <h4 className="TableProps-header">Properties</h4>
-                <table className="table">
+            <div className={classNames('TableProps', className)}>
+                <h4 className='TableProps-header'>{name}</h4>
+                <table className='table'>
                     <thead>
                         <tr>
-                            <th width="13%">Name</th>
-                            <th width="7%">Type</th>
-                            <th width="7%">Default</th>
+                            <th width='13%'>Name</th>
+                            <th width='7%'>Type</th>
+                            <th width='7%'>Default</th>
                             <th>Description</th>
                         </tr>
                     </thead>
@@ -30,9 +36,9 @@ export default class TableProps extends Component {
                         {(dataset || []).map((item, index) =>
                             <tr key={index}>
                                 <td>{item.name}</td>
-                                <td><small className="TableProps-val-type">{item.type}</small></td>
+                                <td><small className='TableProps-val-type'>{item.type}</small></td>
                                 <td>{item.default &&
-                                    <small className="TableProps-val-default">{item.default}</small>
+                                    <small className='TableProps-val-default'>{item.default}</small>
                                 }</td>
                                 <td>{item.desc}</td>
                             </tr>

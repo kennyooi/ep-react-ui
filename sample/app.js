@@ -11,6 +11,7 @@ import DocModal from './App/DocModal/index';
 import DocForm from './App/DocForm/index';
 import DocAutocomplete from './App/DocAutocomplete/index';
 import DocDatetimePicker from './App/DocDatetimePicker/index';
+import DocEditor from './App/DocEditor/index';
 import DocNotification from './App/DocNotification/index';
 import DocInView from './App/DocInView/index';
 import DocLoader from './App/DocLoader/index';
@@ -57,6 +58,12 @@ const __ROUTES = [
         route   : '/datetimepicker'
     },
     {
+        id      : 'epeditor',
+        name    : 'Editor',
+        component : DocEditor,
+        route   : '/editor'
+    },
+    {
         id      : 'notification',
         name    : 'Notification',
         component : DocNotification,
@@ -73,20 +80,8 @@ const __ROUTES = [
         name    : 'Loader',
         component : DocLoader,
         route   : '/loader'
-    },
-    {
-        id      : 'mediumdraft',
-        name    : 'Medium Draft (progress)',
-        component : EmptyPage,
-        route   : '/mediumdraft'
     }
 ];
-
-
-// Render component
-// const getComponent = (obj) => {
-//  return ({ match }) => obj.component;
-// }
 
 
 // Render App

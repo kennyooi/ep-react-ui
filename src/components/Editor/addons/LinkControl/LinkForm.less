@@ -1,0 +1,37 @@
+@import "../../../../less/variables";
+
+.LinkForm{
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 250px;
+    margin-left: -125px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    display: flex;
+    padding: .7em;
+    box-shadow: @shadow300;
+    > *{
+        line-height: 32px;
+        height: 32px;
+    }
+    .input{
+        border: none;
+        flex-grow: 4;
+    }
+    .button{
+        background-color: @orange500;
+        color: #fff;
+        border: none;
+        margin-left: .5em;
+        padding: 0 1em;
+        font-size: .8em;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: background .3s;
+        &:hover{
+            background-color: @orange700;
+        }
+    }
+}
