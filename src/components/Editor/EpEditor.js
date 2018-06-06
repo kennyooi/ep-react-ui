@@ -42,6 +42,7 @@ export default class EpEditor extends PureComponent {
         // actions
         this._onChange = this._onChange.bind(this);
         this._onChangeFocus = this._onChangeFocus.bind(this);
+        this._onBlur = this._onBlur.bind(this);
         this._onHandleKeyCommand = this._onHandleKeyCommand.bind(this);
     }
 
@@ -53,6 +54,12 @@ export default class EpEditor extends PureComponent {
         this.setState({ editorState });
 
         setTimeout(() => this.__editorRef.focus(), 0);
+    }
+
+    _onBlur() {
+        const { editorState } = this.state;
+
+        return stateToHTML(editorState.getCurrentContent());
     }
 
     _onHandleKeyCommand(command, editorState) {
@@ -87,6 +94,7 @@ export default class EpEditor extends PureComponent {
                         editorState={editorState}
                         handleKeyCommand={this._onHandleKeyCommand}
                         onChange={this._onChange}
+                        onBlur={this._onBlur}
                     />
                 </div>
                 <div className='EpEditor-controls'>
