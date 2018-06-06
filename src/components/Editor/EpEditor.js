@@ -25,7 +25,8 @@ export default class EpEditor extends PureComponent {
 
     static propTypes = {
         value       : PropTypes.string,
-        placeholder : PropTypes.string
+        placeholder : PropTypes.string,
+        onBlur      : PropTypes.func
     };
 
     constructor(props) {
@@ -57,9 +58,12 @@ export default class EpEditor extends PureComponent {
     }
 
     _onBlur() {
+        const { onBlur } = this.props;
         const { editorState } = this.state;
 
-        return stateToHTML(editorState.getCurrentContent());
+        if (onBlur) {
+            onBlur(stateToHTML(editorState.getCurrentContent()));
+        }
     }
 
     _onHandleKeyCommand(command, editorState) {
