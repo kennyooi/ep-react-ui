@@ -214,9 +214,15 @@ export default class PickerModalCalendar extends PureComponent {
         e.preventDefault();
 
         const selectedDay = (e.currentTarget.dataset || {}).day;
-
         if (selectedDay && this.props.onChange) {
-            const newMoment = moment(this.props.momentValue).date(selectedDay);
+            const { viewMonth } = this.state;
+
+            const newMoment = moment(this.props.momentValue)
+                .date(selectedDay)
+                .month(viewMonth.month())
+                .year(viewMonth.year());
+
+            // trigger onChange
             this.props.onChange(newMoment);
         }
     }

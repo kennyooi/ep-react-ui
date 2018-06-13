@@ -55,7 +55,7 @@ export default class DocDatePicker extends Component {
                         <div className='c-sm-4'>
                             <DatetimePicker
                                 type='time'
-                                format='hh:mm'
+                                format='HH:mm'
                                 displayFormat='h:mm A'
                                 inputProps={{
                                     className   : 'input-block',
