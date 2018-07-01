@@ -16,6 +16,8 @@ import { findLinkEntities, LinkComp } from './addons/LinkControl/decorator';
 
 import './EpEditor.less';
 
+// const { hasCommandModifier } = KeyBindingUtil;
+
 // create draft-js plugins
 const autoListPlugin = createAutoListPlugin();
 const blockBreakoutPlugin = createBlockBreakoutPlugin();
@@ -45,6 +47,7 @@ export default class EpEditor extends PureComponent {
         this._onChangeFocus = this._onChangeFocus.bind(this);
         this._onBlur = this._onBlur.bind(this);
         this._onHandleKeyCommand = this._onHandleKeyCommand.bind(this);
+        this._onHandleReturn = this._onHandleReturn.bind(this);
     }
 
     _onChange(editorState) {
@@ -70,9 +73,23 @@ export default class EpEditor extends PureComponent {
         const newState = RichUtils.handleKeyCommand(editorState, command);
         if (newState) {
             this._onChange(newState);
-            return true;
+            return 'handle';
         }
-        return false;
+        return 'not-handled';
+    }
+
+    _onHandleReturn(e) {
+        const { editorState } = this.state;
+
+        // handle soft return
+        if (e.which === 13 &&
+            (e.getModifierState('Shift') ||
+                e.getModifierState('Alt') ||
+                e.getModifierState('Control'))) {
+            this._onChange(RichUtils.insertSoftNewline(editorState));
+            return 'handled';
+        }
+        return 'not-handled';
     }
 
     render() {
@@ -97,6 +114,7 @@ export default class EpEditor extends PureComponent {
                         ]}
                         editorState={editorState}
                         handleKeyCommand={this._onHandleKeyCommand}
+                        handleReturn={this._onHandleReturn}
                         onChange={this._onChange}
                         onBlur={this._onBlur}
                     />
